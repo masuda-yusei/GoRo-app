@@ -49,4 +49,4 @@ $ rails s
 
 
 ## 画面遷移図
-![画面遷移図](https://user-images.githubusercontent.com/89350963/144876045-50f42521-8665-459c-bce7-a4133ace5a69.png)
+![画面遷移図](https://user-images.githubusercontent.com/89350963/145029652-962d89cb-3653-4ea7-9411-d4bb609afc76.png)
