@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root 'tops#index'
+
+  resources :users, only: [:show]
 end
