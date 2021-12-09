@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   root 'tops#index'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 end
