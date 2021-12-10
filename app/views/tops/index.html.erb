@@ -5,12 +5,15 @@
       <div class="navbar__sign-in-btn">
         <%= link_to "ログイン", new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
       </div>
+      <div class="navbar__sign-out-btn">
+        <%= link_to "ログアウト", destroy_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
+      </div>
     </nav>
   </div>
 
   <div class="top-title">
     <h1 class="text-white text-center">
-      Swipe Right
+      ゴルフをもっと楽しみたい方へ
     </h1>
   </div>
 
@@ -21,5 +24,7 @@
     <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログイン", new_user_session_path, class: "btn text-white" %>
     </div>
-  </div>
+    <div class="top-authentication__sign-out-btn m-3">
+      <%= link_to "ログアウト", destroy_user_session_path, class: "btn text-white" %>
+    </div>
 </div>

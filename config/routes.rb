@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   resources :users, only: [:show, :index]
+  resources :matching, only: [:index]
 end

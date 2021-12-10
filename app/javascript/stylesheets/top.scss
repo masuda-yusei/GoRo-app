@@ -7,7 +7,7 @@
 }
 
 .text-top-color {
-  color: #FD3378;
+  color: #008080;
   font-weight: 600;
   padding: 6px 24px;
 }
@@ -33,6 +33,14 @@
     white-space: nowrap;
   }
   &__sign-in-btn {
+    border-radius: 30px;
+    padding: 4px;
+    white-space: nowrap;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 2px;
+  }
+  &__sign-out-btn {
     border-radius: 30px;
     padding: 4px;
     white-space: nowrap;
