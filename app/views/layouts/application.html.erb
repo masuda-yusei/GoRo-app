@@ -18,6 +18,10 @@
       <%= link_to "ログイン", new_user_session_path %>
     <% end %>
 
+    <% if current_user.try(:admin?) %>
+      <%= link_to "管理画面", rails_admin_path %>
+    <% end %>
+
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
