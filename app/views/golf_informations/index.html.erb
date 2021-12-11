@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Golf_Informations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Golf_History</th>
+      <th>Average_Score</th>
+      <th>Annual_Round_Times</th>
+      <th>Play_Area</th>
+      <th>Playable_Date</th>
+      <th>Pick_Up</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @golf_informations.each do |golf_information| %>
+      <tr>
+        <td><%= golf_information.golf_history %></td>
+        <td><%= golf_information.average_score %></td>
+        <td><%= golf_information.annual_round_times %></td>
+        <td><%= golf_information.play_area %></td>
+        <td><%= golf_information.playable_date %></td>
+        <td><%= golf_information.pick_up %></td>
+        <td><%= golf_information.user %></td>
+        <td><%= link_to 'Show', golf_information %></td>
+        <td><%= link_to 'Edit', edit_golf_information_path(golf_information) %></td>
+        <td><%= link_to 'Destroy', golf_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Golf_Information', new_golf_information_path %>
