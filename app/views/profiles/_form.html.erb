@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.select :gender,Profile.genders.keys, {include_blank: '選択してください'}%>
+    <%= form.collection_radio_buttons :gender, Profile.genders,:first, :first %>
   </div>
 
   <div class="field">
     <%= form.label :birthday %>
-    <%= form.date_select :birthday %>
+    <%= form.date_select :birthday, { include_blank: '----------', start_year: 1921, end_year: 2021} %>
   </div>
 
   <div class="field">
