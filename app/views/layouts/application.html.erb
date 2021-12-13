@@ -10,31 +10,33 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "ブログ投稿", blogs_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "プロフィール", profiles_path %>
-      <%= link_to "ゴルファー一覧", users_path %>
-      <%= link_to "トーク一覧", talks_path %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+  <header>
+  <%= image_tag "logo.png", width: 150 %>
+      <% if user_signed_in? %>
+        <%= link_to "ブログ投稿", blogs_path %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "プロフィール", profiles_path %>
+        <%= link_to "ゴルファー一覧", users_path %>
+        <%= link_to "トーク一覧", talks_path %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+  
+      <% if current_user.try(:admin?) %>
+        <%= link_to "管理画面", rails_admin_path %>
+      <% end %>
+  </header>
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
 
-    <% if current_user.try(:admin?) %>
-      <%= link_to "管理画面", rails_admin_path %>
-    <% end %>
-
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-
-     <% if user_signed_in? %>
-      <div>名前:<%= current_user.name %></div>
-    <% end %>
-    <%= yield %>
+       <% if user_signed_in? %>
+        <div>名前:<%= current_user.name %></div>
+      <% end %>
+      <%= yield %>
   </body>
 </html>
