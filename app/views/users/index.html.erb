@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ユーザー一覧</h1>
+<%= search_form_for @q do |f| %>
+  <%= f.label :gender, '性別で検索' %>
+  <%= f.search_field :gender_eq %>
+<br>
+  <%= f.label :residence, '居住地で検索' %>
+  <%= f.search_field :residence_eq %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<% @users.each do |user| %>
+  <div class="users-index-item">
+    <div class="user-right">  　　　<!-- 下記のコードでユーザーを表示させています。 -->
+      <%= link_to(user.name, "/users/#{user.id}") %>
+    </div>
+  </div>
+<% end %>

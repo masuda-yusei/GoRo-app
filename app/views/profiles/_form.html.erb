@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :residence %>
-    <%= form.text_field :residence %>
+    <%= form.select :residence, Profile.residence.keys, {} %>
   </div>
 
   <div class="field">
