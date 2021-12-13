@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_120222) do
+ActiveRecord::Schema.define(version: 2021_12_12_020228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2021_12_11_120222) do
     t.index ["user_id"], name: "index_golf_informations_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "talk_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["talk_id"], name: "index_messages_on_talk_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "icon"
     t.integer "gender"
@@ -53,6 +64,13 @@ ActiveRecord::Schema.define(version: 2021_12_11_120222) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "talks", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,5 +95,7 @@ ActiveRecord::Schema.define(version: 2021_12_11_120222) do
   add_foreign_key "blogs", "users"
   add_foreign_key "favorites", "users"
   add_foreign_key "golf_informations", "users"
+  add_foreign_key "messages", "talks"
+  add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
 end
