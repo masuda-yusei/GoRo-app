@@ -4,7 +4,8 @@ class GolfInformationsController < ApplicationController
 
   # GET /golf_informations
   def index
-    @golf_informations = Golf_Information.all
+    @q = Golf_Information.ransack(params[:q])
+    @golf_informations = @q.result(distinct: true)
   end
 
   # GET /golf_informations/1
