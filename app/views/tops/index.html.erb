@@ -5,12 +5,15 @@
       <div class="navbar__sign-in-btn">
         <%= link_to "ログイン", new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
       </div>
+      <div class="navbar__gest_sign-in-btn">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do method: :post do %>
+      </div>
     </nav>
   </div>
 
   <div class="top-title">
     <h1 class="text-white text-center">
-      Swipe Right
+      ゴルフを楽しみたい人へ
     </h1>
   </div>
 
@@ -18,8 +21,9 @@
     <div class="top-authentication__sign-up-btn m-3">
       <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn text-white" %>
     </div>
-    <div class="top-authentication__sign-in-btn m-3">
+    <%# <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログイン", new_user_session_path, class: "btn text-white" %>
-    </div>
+    <%# </div> %> %>
+    
   </div>
 </div>
