@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'tops#index'
+  get 'tops/index'  
   resources :talks do
     resources :messages
   end
@@ -11,5 +13,4 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  root 'tops#index'
 end
