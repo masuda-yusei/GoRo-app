@@ -4,7 +4,7 @@ class TalksController < ApplicationController
   end
 
   def create
-    if logged_in?
+    if user_signed_in?
       # 該当のユーザ間での会話が過去に存在しているか？
       if Talk.between(params[:sender_id], params[:receiver_id]).present?
         # 存在した場合、その会話（チャットルーム）情報を取得
