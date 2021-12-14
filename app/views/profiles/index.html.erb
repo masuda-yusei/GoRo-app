@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Profiles</h1>
+<%= search_form_for @q do |f| %>
+  <%= f.label :gender, '性別で検索' %>
+  <%= f.search_field :gender_eq %>
+<br>
+  <%= f.label :residence, '居住地で検索' %>
+  <%= f.search_field :residence_eq %>
+  <%= f.submit '検索' %>
+<% end %>
 
 <table>
   <thead>
@@ -23,7 +31,7 @@
         <td><%= profile.birthday %></td>
         <td><%= profile.residence %></td>
         <td><%= profile.introduction %></td>
-        <td><%= profile.user %></td>
+        <td><%= profile.user.name %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>

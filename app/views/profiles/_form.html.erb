@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :icon %>
-    <%= form.text_field :icon %>
+    <%= form.file_field :icon %>
   </div>
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.number_field :gender %>
+    <%= form.collection_radio_buttons :gender, Profile.genders,:first, :first %>
   </div>
 
   <div class="field">
     <%= form.label :birthday %>
-    <%= form.date_select :birthday %>
+    <%= form.date_select :birthday, { include_blank: '----------', start_year: 1921, end_year: 2021} %>
   </div>
 
   <div class="field">
     <%= form.label :residence %>
-    <%= form.text_field :residence %>
+    <%= form.select :residence, Profile.residence.keys, {} %>
   </div>
 
   <div class="field">

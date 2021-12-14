@@ -2,6 +2,16 @@
 
 <h1>Golf_Informations</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :golf_history, 'ゴルフ歴で検索' %>
+  <%= f.search_field :golf_history_eq %>
+<br>
+  <%= f.label :average_score, '平均スコアで検索' %>
+  <%= f.number_field :average_score_eq %>
+  <%= f.submit '検索' %>
+<% end %>
+
+
 <table>
   <thead>
     <tr>

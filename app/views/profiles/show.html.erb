@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>User:</strong>
+  <%= @profile.user.name %>
+</p>
+
+<p>
   <strong>Icon:</strong>
-  <%= @profile.icon %>
+  <%= image_tag @profile.icon.url %>
 </p>
 
 <p>
@@ -15,6 +20,8 @@
   <%= @profile.birthday %>
 </p>
 
+<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birthday.strftime('%Y%m%d').to_i) / 10000 %>歳
+
 <p>
   <strong>residence:</strong>
   <%= @profile.residence %>
@@ -23,11 +30,6 @@
 <p>
   <strong>Introduction:</strong>
   <%= @profile.introduction %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

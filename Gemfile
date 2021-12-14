@@ -24,6 +24,8 @@ gem 'devise-i18n'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 
+gem 'ransack'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'

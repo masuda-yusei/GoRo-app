@@ -4,7 +4,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
-    @profiles = Profile.all
+    @q = Profile.ransack(params[:q])
+    @profiles = @q.result(distinct: true)
   end
 
   # GET /profiles/1
@@ -48,10 +49,10 @@ class ProfilesController < ApplicationController
 
   private
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.find_by(user_id:params[:id])
     end
 
     def profile_params
-      params.require(:profile).permit(:icon, :gender, :birthday, :residence, :introduction)
+      params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction)
     end
 end
