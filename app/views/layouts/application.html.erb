@@ -49,15 +49,17 @@
         </ul>
       <% end %>
     </header>
-    
+    <!---
       <% if notice %>
         <p class="alert alert-notice"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-error"><%= alert %></p>
       <% end %>
+
+      --->
        <% if user_signed_in? %>
-        <div>名前:<%= current_user.name %></div>
+        <div class="login"><%= image_tag current_user.profile.icon.url %><%= current_user.name %></div>
       <% end %>
       <%= yield %>
     </div>
