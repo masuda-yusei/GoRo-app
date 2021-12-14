@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
   has_many :blogs, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_one :profiles, dependent: :destroy
+  has_one :profile, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   enum gender: { 男性: 1, 女性: 2, その他: 3 }
   enum residence: { "---":0,

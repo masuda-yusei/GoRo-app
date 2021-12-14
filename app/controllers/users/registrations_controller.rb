@@ -2,6 +2,12 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: %i[update destroy]
+
+  def create
+    super
+    @profile = @user.build_profile(id: @user.id)
+    @profile.save
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
