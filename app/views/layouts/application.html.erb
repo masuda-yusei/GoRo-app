@@ -11,53 +11,65 @@
 
   <body>
   <div class="container">
-    <header> 
-      <%= link_to tops_index_path do %>
-        <%= image_tag "logo.png", width: 150 %>
-      <% end %>
-      <% if user_signed_in? %>
-        <ul class="menu">
-          <li class="menu__single">
-              <a href="#" class="init-bottom"><i class="fas fa-file-o">Profile</a>
-              <ul class="menu__second-level">
-                  <li><%= link_to "All Profiles", profiles_path %></li>
-              </ul>
-          </li>
-          <li class="menu__single">
-              <a href="#" class="init-bottom"><i class="fas fa-user"></i>User</a>
-              <ul class="menu__second-level">
-                  <li><%= link_to "All Users", users_path %></li>
-                  <li><%= link_to "Talk", talks_path %></li>
-              </ul>
-          </li>
-          <li class="menu__single">
-              <a href="#" class="init-bottom"><i class="fas fa-sticky-note"></i>Blog</a>
-              <ul class="menu__second-level">
-                  <li><%= link_to "All Blogs", blogs_path %></li>
-                  <li><%= link_to "Post Blog", new_blog_path %></li>
-              </ul>
-          </li>
-          <li class="menu__single">
-              <a href="#" class="init-bottom">><i class="fas fa-cog"></i>Account</a>
-              <ul class="menu__second-level">
-                  <li><%= link_to "Profiles", profile_path(current_user.id) %></li>
-                  <li><%= link_to "Account", edit_user_registration_path %></li>
-                  <li><% if current_user.try(:admin?) %><%= link_to "Admin", rails_admin_path %><% end %></li>
-                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %></li>
-              </ul>
-          </li>
+      <header>
+        <%= link_to tops_index_path do %>
+          <h1>GoRo</h1>
+        <% end %>
+        <ul class="uk-iconnav uk uk-position-small uk-position-right">
+            <li><%= link_to profiles_path do %><span uk-icon="icon: user"><% end %></li>
+            <li><%= link_to users_path do %><span uk-icon="icon: search"><% end %></li>
+            <li><%= link_to talks_path do %><span uk-icon="icon: comment"><% end %></li>
+            <li><%= link_to blogs_path do %><span uk-icon="icon: pencil"><% end %></li>
         </ul>
-      <% end %>
+
+        <% if user_signed_in? %>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-primary">MENU</button>
+
+          <div id="offcanvas-nav-primary" uk-offcanvas="mode: push">
+            <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+              <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+                <li><%= link_to "プロフィールを見る", profiles_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "ゴルフブログを見る", blogs_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "メッセージを見る", talks_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "お気に入りしたゴルファー", favorite_users_path, data: {"turbolinks" => false} %></li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                  <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
+                    <span class="uk-margin-small-right" uk-icon="icon: user"></span>マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to edit_user_registration_path, data: {"turbolinks" => false} do %>
+                    <span class="uk-margin-small-right" uk-icon="icon: lock"></span>アカウント
+                  <% end %>
+                </li>
+                <li>
+                  <% if current_user.try(:admin?) %>
+                    <%= link_to rails_admin_path, data: {"turbolinks" => false} do %>
+                      <span class="uk-margin-small-right" uk-icon="icon: cog"></span>管理者ページ
+                    <% end %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } do %>
+                    <span class="uk-margin-small-right" uk-icon="icon: sign-out"></span>ログアウト
+                  <% end %>
+                </li>
+                </ul>
+            </div>
+          </div>
+        <% end %>
     </header>
-    <!---
+   
       <% if notice %>
-        <p class="alert alert-notice"><%= notice %></p>
+        <p class="alert alert-notice"><i class="fas fa-check"></i><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
+        <p class="alert alert-error"><i class="fas fa-exclamation-triangle"></i><%= alert %></p>
       <% end %>
 
-      --->
+      
        <% if user_signed_in? %>
         <div class="login">
         <% if current_user.profile.icon? %>
