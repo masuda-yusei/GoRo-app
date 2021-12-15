@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
       redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。'
     end
   end
+
+  def after_sign_in_path_for(resource_or_scope)
+    profile_path(resource_or_scope)
+  end
+  
 end

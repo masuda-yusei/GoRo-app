@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="blog__area">
-<h1><%= @blog.title.truncate(35) %></h1>
+  <h1><%= @blog.title.truncate(35) %></h1>
 
-<p class="content"><%= @blog.content %></p>
+  <p class="content"><%= @blog.content %></p>
 
 <div class="user__area">
   <p><%= image_tag @blog.user.profile.icon.url %></p>

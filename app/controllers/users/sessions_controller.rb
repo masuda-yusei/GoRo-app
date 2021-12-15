@@ -3,12 +3,12 @@
 class Users::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest
-    unless Profile.find(user.id).present?
+    unless Profile.where(id: user.id).present?
       @profile = user.build_profile(id: user.id)
       @profile.save
     end
     sign_in user
-    redirect_to trips_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to profile_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
   # before_action :configure_sign_in_params, only: [:create]
 
