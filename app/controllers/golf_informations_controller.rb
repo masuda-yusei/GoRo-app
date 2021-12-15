@@ -53,6 +53,6 @@ class GolfInformationsController < ApplicationController
     end
 
     def golf_information_params
-      params.require(:golf_information).permit(:golf_history, :average_score, :annual_round_times, :play_area, :playable_date, :playable_date)
+      params.require(:golf_information).permit(:golf_history, :average_score, :annual_round_times, :playable_date, :playable_date)
     end
 end
