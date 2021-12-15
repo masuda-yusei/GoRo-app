@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      profile: プロフィール
+      golf_information: ゴルフ情報
+      member: メンバー
+      favorite: お気に入り
+      blog: ブログ
+      talk: チャット
+      message: メッセージ
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+      profile:
+        icon: アイコン
+        gender: 性別
+        birthday: 生年月日
+        residence: 居住地
+        introduction: 自己紹介
+      golf_information: 
+          Golf_History: ゴルフ歴
+          Average_Score: 平均スコア
+          Annual_Round_Times: 年間ラウンド回数
+          Play_Area: プレー地域
+          Playable_Date: プレー可能日
+          Pick_Up: 送迎
+      member:
+        as: として
+      blog:
+        title: タイトル
+        content: 内容
+      message:
+        content: メッセージ
