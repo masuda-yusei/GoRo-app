@@ -1,5 +1,4 @@
 user1 = User.create!(
-  id: 1,
   name: "Yusei",
   email: "you@gmail.com,
   password: "111111",
@@ -7,28 +6,24 @@ user1 = User.create!(
   confirmed_at: Time.now,
 )
 user2 = User.create!(
-  id: 2,
   name: "Yoshiki",
   email: "yoshi@gmail.com",
   password: "111111",
   confirmed_at: Time.now,
 )
 user3 = User.create!(
-  id: 3,
   name: "Yamada",
   email: "yamada@gmail.com",
   password: "111111",
   confirmed_at: Time.now,
 )
 user4 = User.create!(
-  id: 4,
   name: "Toshi",
   email: "toshi@gmail.com",
   password: "111111",
   confirmed_at: Time.now,
 )
 user5 = User.create!(
-  id: 5,
   name: "Kei",
   email: "kei@gmail.com",
   password: "111111",
@@ -136,76 +131,74 @@ golf_information5 = user5.build_golf_information(
 golf_information5.save
 
 Favorite.create!(
-  user_id: 5
+  user_id: user1.id
 )
 Favorite.create!(
-  user_id: 2
+  user_id: user2.id
 )
 Favorite.create!(
-  user_id: 4
+  user_id: user4.id
 )
 Favorite.create!(
-  user_id: 5
+  user_id: user5.id
 )
 Favorite.create!(
-  user_id: 1
+  user_id: user3.id
 )
 
-Talk.create!(
-  id: 1,
-  sender_id: 1,
-  receiver_id: 2,
+talk1 = Talk.create!(
+  sender_id: user1.id,
+  receiver_id: user2.id,
 )
 
-Talk.create!(
-  id: 2,
-  sender_id: 3,
-  receiver_id: 4,
+talk2 = Talk.create!(
+  sender_id: user3.id,
+  receiver_id: user4.id,
 )
-Talk.create!(
-  id: 3,
-  sender_id: 1,
-  receiver_id: 3,
+
+talk3 = Talk.create!(
+  sender_id: user1.id,
+  receiver_id: user3.id,
 )
-Talk.create!(
-  id: 4,
-  sender_id: 2,
-  receiver_id: 4,
+
+talk4 = Talk.create!(
+  sender_id: user2.id,
+  receiver_id: user4.id,
 )
-Talk.create!(
-  id: 5,
-  sender_id: 1,
-  receiver_id: 5,
+
+talk5 = Talk.create!(
+  sender_id: user1.id,
+  receiver_id: user5.id,
 )
 
 Message.create!(
   content: "こんにちは",
-  talk_id: 1,
-  user_id: 1,
+  talk_id: talk1.id,
+  user_id: user1.id,
   read: true,
 )
 Message.create!(
   content: "はじめまして！",
-  talk_id: 1,
-  user_id: 2,
+  talk_id: talk1.id,
+  user_id: user2.id,
   read: false,
 )
 Message.create!(
   content: "ありがとうございました！",
-  talk_id: 2,
-  user_id: 3,
+  talk_id: talk2.id,
+  user_id: user3.id,
   read: true,
 )
 Message.create!(
   content: "楽しかったです!",
-  talk_id: 2,
-  user_id: 4,
+  talk_id: talk2.id,
+  user_id: user4.id,
   read: true,
 )
 Message.create!(
   content: "またゴルフ一緒に行きましょう!",
-  talk_id: 2,
-  user_id: 3,
+  talk_id: talk2.id,
+  user_id: user3.id,
   read: false,
 )
 
@@ -213,28 +206,28 @@ Message.create!(
 Blog.create!(
   title: "ベストスコア",
   content: "ベストスコア80出せました！",
-  user_id: 1,
+  user_id: user1.id,
 )
 Blog.create!(
   title: "トーナメント",
   content: "宮崎県のゴルフトーナメントで優勝できましたV",
-  user_id: 1,
+  user_id: user1.id,
 )
 
 Blog.create!(
   title: "初ラウンド",
   content: "ゴルフ初ラウンド、すごく楽しかった!",
-  user_id: 5,
+  user_id: user5.id,
 )
 
 Blog.create!(
   title: "バンカー",
   content: "バンカーに苦戦して、スコア伸び悩んだ（ ;  ; ） バンカーの練習をもっとしよう！",
-  user_id: 2,
+  user_id: user2.id,
 )
 
 Blog.create!(
   title: "トーナメント観戦",
   content: "プロの技術力に圧倒された。自分もプロみたいに上手くなれるよう練習しよう。",
-  user_id: 4,
+  user_id: user4.id,
 ) 
