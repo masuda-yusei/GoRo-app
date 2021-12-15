@@ -181,14 +181,14 @@ Talk.create!(
 Message.create!(
   content: "こんにちは",
   talk_id: 1,
-  user_id: 2,
+  user_id: 1,
   read: true,
 )
 Message.create!(
   content: "はじめまして！",
   talk_id: 1,
-  user_id: 1,
-  read: true,
+  user_id: 2,
+  read: false,
 )
 Message.create!(
   content: "ありがとうございました！",

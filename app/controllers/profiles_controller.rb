@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   def index
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true)
+    @profiles = @q.result(distinct: true).includes(:place).page(params[:page]).per(5)
   end
 
   # GET /profiles/1

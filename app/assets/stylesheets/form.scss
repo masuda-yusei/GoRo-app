@@ -127,3 +127,21 @@ opacity:0;/*透過0に*/
 .btntextchange:hover span:nth-child(2){
 opacity:1;/*不透明に*/
 } 
+
+//--ransack----------------------
+.blog_search .profile_search{
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.search_date_area{
+  max-width: 100%;
+}
+
+.search_date{
+  max-width: 200px;
+}
+
+input.search{
+  max-width: 300px;
+}

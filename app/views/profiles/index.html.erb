@@ -1,11 +1,11 @@
 <h1>Profiles</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :gender, '性別で検索' %>
-  <%= f.search_field :gender_eq %>
+  <%= f.select_field :gender_eq %>
 <br>
   <%= f.label :residence, '居住地で検索' %>
   <%= f.search_field :residence_eq %>
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class:"btntextchange search" %>
 <% end %>
 
 <table>
