@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
   end
 
   # GET /profiles/new
