@@ -19,6 +19,9 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    unless @blog.user == current_user
+      redirect_to @blog, alert: "投稿者以外は編集できません"
+    end
   end
 
   # POST /blogs or /blogs.json

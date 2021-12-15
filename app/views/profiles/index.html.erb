@@ -38,6 +38,14 @@
   </tbody>
 </table>
 
-<br>
+<div class="buttons">
+				<%= link_to 'Detail', profile, class: "btn btn-info"%>
+				<% unless profile.user_id == current_user.id %>
+					<%= link_to 'Message', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
+				<% end %>
+			</div>
+			<div class="profile__detail">
+				<p><%= profile.introduction.truncate(20) if profile.introduction.present? %></p>
+			</div>
 
 <%= link_to 'New Profile', new_profile_path %>

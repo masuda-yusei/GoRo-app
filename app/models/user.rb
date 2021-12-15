@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :talks, foreign_key: :sender_id, dependent: :destroy
 
   enum gender: { 男性: 1, 女性: 2, その他: 3 }
   enum residence: { "---":0,
