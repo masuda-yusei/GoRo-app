@@ -10,6 +10,16 @@ class Users::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to profile_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
+
+  def new_guest_admin
+    user = User.guest_admin
+    unless Profile.where(id: user.id).present?
+      @profile = user.build_profile(id: user.id, place_id: 651)
+      @profile.save
+    end
+    sign_in user
+    redirect_to profile_path(user.id), notice: 'ゲスト管理者ユーザーとしてログインしました。'
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
