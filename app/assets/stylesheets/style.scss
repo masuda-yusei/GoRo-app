@@ -23,7 +23,18 @@ p{
 }
 
 a {
-  color: #000;
+  color: #524c4c;
+}
+
+header img{
+  width: 200px;
+  margin-top: 10px;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #524c4c;
+  opacity: 0.9;
 }
 
 li{
@@ -90,6 +101,7 @@ footer{
   position: absolute;
   bottom: 0;
   display: table;
+  background: #faf8f8;
 }
 
 footer p{
@@ -112,7 +124,7 @@ footer p{
 
 .container{
   position: relative;
-  padding-bottom: 70px;
+  padding: 0 0 70px 0;
   min-height: 100vh;
   box-sizing: border-box;
   width: 100%;
@@ -122,7 +134,7 @@ footer p{
   border: solid 1px #000;
   max-width: 1000px;
   min-height: 600px;
-  margin: 0 auto;
+  margin: 30px auto;
   position: relative;
   margin-bottom: 20px;
 }

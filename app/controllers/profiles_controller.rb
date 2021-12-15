@@ -13,26 +13,10 @@ class ProfilesController < ApplicationController
     @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
   end
 
-  # GET /profiles/new
-  def new
-    @profile = Profile.new
-  end
-
   # GET /profiles/1/edit
   def edit
     unless @profile.user == current_user
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
-    end
-  end
-
-  # POST /profiles
-  def create
-    @profile = Profile.new(profile_params)
-    @profile.user_id = current_user.id
-    if @profile.save
-      redirect_to @profile, notice: t('notice.create', model: t('profile'))
-    else
-      render :new
     end
   end
 
@@ -45,18 +29,12 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1
-  def destroy
-    @profile.destroy
-    redirect_to profiles_url, notice: t('notice.destroy', model: t('profile'))
+  private
+  def set_profile
+    @profile = Profile.find(params[:id])
   end
 
-  private
-    def set_profile
-      profile = Profile.find(params[:id])
-    end
-
-    def profile_params
-      params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction)
-    end
+  def profile_params
+    params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction)
+  end
 end
