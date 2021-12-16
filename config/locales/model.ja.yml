@@ -11,7 +11,7 @@ ja:
       message: メッセージ
     attributes:
       user:
-        name: 名前
+        name: ニックネーム
         email: メールアドレス
       profile:
         icon: アイコン

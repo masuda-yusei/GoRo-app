@@ -1,3 +1,12 @@
+admin = User.create!(
+  name:"GoRo公式アカウント",
+  email:"goro@gmail.com",
+  password:"111111",
+  admin: true,
+  confirmed_at: Time.now,
+)
+
+
 user1 = User.create!(
   name: "Yusei",
   email: "you@gmail.com,

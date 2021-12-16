@@ -13,8 +13,9 @@
 
   <div class="field">
     <%= form.label :icon %>
-    <%= image_tag(profile.icon.url) if profile.icon && profile.icon.url %>
-    <%= form.file_field :icon %>
+    <%= image_tag profile.icon.url, id: "img_prev" %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :icon, id: 'user_img' %>
   </div>
 
   <div class="field">
@@ -35,7 +36,7 @@
 
   <div class="field">
     <%= form.label :introduction %>
-    <%= form.text_area :introduction %>
+    <%= form.text_area :introduction, :placeholder => "ゴルフに関する感想、目標等（5000文字以内）" %>
   </div>
 
   <div class="field">

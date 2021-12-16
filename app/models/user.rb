@@ -39,4 +39,20 @@ class User < ApplicationRecord
     end
 
     validates :name, presence: true, length: { in: 2..25 }
+
+    after_create :create_profile, :initial_message
+
+    def create_profile
+      create_profile!(id: id)
+    end
+
+    def initial_message
+      admin = User.find_by(email:"goro@gmail.com")
+      user = User.last
+      talk = Talk.create(sender_id: admin.id, receiver_id: user.id)
+      Message.create(talk_id: talk.id, user_id: admin.id, content: "こんにちは！新規ご登録ありがとうございます。")
+      Message.create(talk_id: talk.id, user_id: admin.id, content: "このアプリでゴルフ仲間を探し、さっそくラウンドしましょう！")
+      Message.create(talk_id: talk.id, user_id: admin.id, content: "お気づきの点、ご不明点がございましたらお気軽にご連絡ください。")
+    end
+  
 end

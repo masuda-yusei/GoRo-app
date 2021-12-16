@@ -4,9 +4,24 @@
   <p class="content"><%= @blog.content %></p>
 
 <div class="user__area">
-  <p><%= image_tag @blog.user.profile.icon.url %></p>
+  <p>
+    <% if @blog.user.profile.icon? %>
+      <%= link_to image_tag(@blog.user.profile.icon.url), profile_path(@blog.user.profile.id) %>
+    <% else %>
+      <%= link_to image_tag(asset_path("default_icon.png")), profile_path(@blog.user.profile.id)  %>
+    <% end %>
+    </p>
   <p><%= @blog.user.name %></p>
 </div>
+
+  <p class="date_blog"><i class="far fa-clock"></i>
+    <% if @duration <= 24 %>
+      <%= "#{@duration}時間前" %>
+    <% else %>
+      <%= "#{@duration/24}日前" %>
+    <% end %>
+  </p>
+
 </div>
 <% if @blog.user.id == current_user.id %>
   <p>

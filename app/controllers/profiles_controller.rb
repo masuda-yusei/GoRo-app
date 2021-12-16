@@ -4,8 +4,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
+    admin = User.find_by(email:"goro@gmail.com")
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).includes(:place).page(params[:page]).per(5)
+    @profiles = @q.result(distinct: true).where.not(id: admin.profile.id).includes(:place).order(updated_at: :desc).page(params[:page]).per(12)
   end
 
   # GET /profiles/1

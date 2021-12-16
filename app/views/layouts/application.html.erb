@@ -18,19 +18,22 @@
       <% end %>
         <ul class="uk-iconnav uk uk-position-large uk-position-right", id="nav_list">
           <% if user_signed_in? %>
-            <li><%= link_to profiles_path do %><span uk-icon="icon: users"><% end %></li>
-            <li><%= link_to users_path do %><span uk-icon="icon: search"><% end %></li>
-            <li><%= link_to blogs_path do %><span uk-icon="icon: pencil"><% end %></li>
-            <li><%= link_to talks_path do %><span uk-icon="icon: mail"><% end %></li>
+            <li><%= link_to profiles_path, title:"プロフィールを見る" do %><span uk-icon="icon: users; ratio: 1.6"><% end %></li>
+            <li><%= link_to users_path, title:"ゴルファーを検索する" do %><span uk-icon="icon: search; ratio: 1.6"><% end %></li>
+            <li><%= link_to blogs_path, title:"ゴルフブログを見る" do %><span uk-icon="icon: file-text;; ratio: 1.6"><% end %></li>
+            <li><%= link_to talks_path, title:"メッセージを見る" do %><span uk-icon="icon: mail; ratio: 1.6"><% end %></li>
+            <li><%= link_to talks_path, title:"未読メッセージ" do %><span class="btn btn-danger"><%= unread_messages %></span><% end %></li>
           <% else %>
-            <li><%= link_to new_user_registration_path do %><span uk-icon="icon: user"><% end %></li>
-            <li><%= link_to new_user_session_path do %><span uk-icon="icon: sign-in"><% end %></li>
+            <li><%= link_to new_user_registration_path, title:"新規登録" do %><span uk-icon="icon: user"><% end %></li>
+            <li><%= link_to new_user_session_path, title:"ログイン" do %><span uk-icon="icon: sign-in"><% end %></li>
           <% end %>
       </header>
 
         <div class="login">
         <% if user_signed_in? %>
-           <button class="uk-button uk-button-default uk-margin-small-left" type="button" uk-toggle="target: #offcanvas-nav-primary" id="menu_window">MENU</button>
+          <button class="uk-button uk-button-default uk-margin-left uk-margin-small-top" type="button" uk-toggle="target: #offcanvas-nav-primary" id="menu_window">
+            <span uk-icon="chevron-left"></span> MENU 
+          </button>
 
           <div id="offcanvas-nav-primary" uk-offcanvas="mode: push">
             <div class="uk-offcanvas-bar uk-flex uk-flex-column">
@@ -77,12 +80,14 @@
 
         <% unless [tops_index_path, root_path].map{|p| current_page?(p)}.any? %>
           <% if user_signed_in? %>
+            <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
               <% if current_user.profile.icon? %>
                 <%= image_tag current_user.profile.icon.url%>
               <% else %>
                 <%= image_tag asset_path("default_icon.png") %>
               <% end %>
               <%= current_user.name %>
+            <% end %>
           <% end %>
         <% end %>
       </div>

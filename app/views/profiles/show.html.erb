@@ -21,6 +21,8 @@
 
   <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birthday.strftime('%Y%m%d').to_i) / 10000 %>歳
   <% end %>
+  <% if @profile.gender.present? && @profile.birthday.present? %> / <% end %>
+  <%= @profile.gender %>
 
 <p>
   <strong>residence:</strong>
@@ -34,8 +36,7 @@
 
 
 <% if @profile.user.id == current_user.id %>
-  <p>
-    <%= link_to t('Edit'), edit_profile_path(@profile) %> |
-    <%= link_to t('Back'), profiles_path %>
-  </p>
+  <p><%= link_to 'プロフィールを編集する', edit_profile_path(@profile), class: "btn btn-warning" %></p>
+<% else %>
+  <p><%= link_to 'メッセージを送る', talks_path(sender_id: current_user.id, receiver_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
 <% end %>
