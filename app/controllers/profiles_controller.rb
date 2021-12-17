@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    params[:residence] = @profile.residence.id
+    params[:residence] = @profile.residence
     unless @profile.user == current_user
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
     end
