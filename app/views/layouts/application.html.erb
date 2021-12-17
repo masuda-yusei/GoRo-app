@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= favicon_link_tag('favicon.ico') %>
     <title>GoRo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -39,7 +38,7 @@
                 <li><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "ゴルフブログを見る", blogs_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "メッセージを見る", talks_path, data: {"turbolinks" => false} %></li>
-                <li><%= link_to "お気に入りしたゴルファー", favorite_users_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "お気に入りしたゴルファー", favorites_path, data: {"turbolinks" => false} %></li>
                 <li class="uk-nav-divider"></li>
                 <li>
                   <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>

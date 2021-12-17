@@ -1,48 +1,52 @@
-<h1>Profiles</h1>
+<h2>Profiles</h2>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :residence, '居住地で検索' %>
   <%= f.search_field :residence_eq %>
   <%= f.submit '検索', class:"btntextchange search" %>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Icon</th>
-      <th>Gender</th>
-      <th>Birthday</th>
-      <th>residence</th>
-      <th>Introduction</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.icon %></td>
-        <td><%= profile.gender %></td>
-        <td><%= profile.birthday %></td>
-        <td><%= profile.residence %></td>
-        <td><%= profile.introduction %></td>
-        <td><%= profile.user.name %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @profiles.empty? %>
+  <br>
+  検索結果が見つかりませんでした
+<% end %>
 
-<div class="buttons">
-				<%= link_to 'Detail', profile, class: "btn btn-info"%>
-				<% unless profile.user_id == current_user.id %>
-					<%= link_to 'Message', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
-				<% end %>
-			</div>
-			<div class="profile__detail">
-				<p><%= profile.introduction.truncate(20) if profile.introduction.present? %></p>
-			</div>
+<div class="scroll-list jscroll">
+	<ul class="cards">
+		<% @profiles.each do |profile| %>
+			<li class="profile__card">
+				<% if profile.icon? %>
+          <%= image_tag profile.icon.url %>
+        <% else %>
+          <%= image_tag asset_path("default_icon.png") %>
+        <% end %>
+				<h3><%= profile.user.name %></h3>
+				<p>
+					<%= (Date.today.strftime('%Y%m%d').to_i - profile.birthday.strftime('%Y%m%d').to_i) / 10000 if  profile.birthday.present? %>歳 
+					<%= profile.gender %>
+          <%= profile.residence %>
+				</p>
+				<div class="buttons">
+					<%= link_to 'Detail', profile, class: "btn btn-info"%>
+					<% unless profile.user_id == current_user.id %>
+						<%= link_to 'Message', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
+					<% end %>
+				</div>
+				<div class="profile__detail">
+					<p><%= profile.introduction.truncate(20) if profile.introduction.present? %></p>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+	<%= paginate @profiles %>
+</div>
 
-<%= link_to 'New Profile', new_profile_path %>
+<script>
+  $(function() {
+    $('.jscroll').jscroll({
+      contentSelector: '.scroll-list',
+      nextSelector: 'span.next:last a'
+    });
+  });
+</script>

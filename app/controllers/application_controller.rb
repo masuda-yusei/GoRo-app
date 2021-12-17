@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def set_residence
+    @residence = residence.all
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
@@ -14,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    profile_path(resource_or_scope)
+    profile_path(resource_or_scope.profile.id)
   end
-  
+
 end

@@ -4,10 +4,9 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :icon
       t.integer :gender
       t.date :birthday
-      t.string :residence
+      t.integer :residence
       t.text :introduction
       t.references :user, foreign_key: true
-
       t.timestamps
     end
   end

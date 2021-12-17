@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
     t.string "icon"
     t.integer "gender"
     t.date "birthday"
-    t.string "residence"
+    t.integer "residence"
     t.text "introduction"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
