@@ -54,6 +54,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .navbar__gest_admin_sign-in-btn {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .top-authentication {
     &__sign-in-btn {

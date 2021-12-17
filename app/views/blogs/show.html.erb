@@ -1,17 +1,34 @@
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<div class="blog__area">
+  <h1><%= @blog.title.truncate(35) %></h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
+  <p class="content"><%= @blog.content %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @blog.user %>
-</p>
+  <div class="user__area">
+    <p>
+      <% if @blog.user.profile.icon? %>
+        <%= link_to image_tag(@blog.user.profile.icon.url), profile_path(@blog.user.profile.id) %>
+      <% else %>
+        <%= link_to image_tag(asset_path("default_icon.png")), profile_path(@blog.user.profile.id)  %>
+      <% end %>
+    </p>
+    <p><%= @blog.user.name %></p>
+  </div>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+ <!--English ver. <p class="date_blog"><%= pluralize(@date, "day", locale: :en) %> ago</p>-->
+  <p class="date_blog"><i class="far fa-clock"></i>
+    <% if @duration <= 24 %>
+      <%= "#{@duration}時間前" %>
+    <% else %>
+      <%= "#{@duration/24}日前" %>
+    <% end %>
+  </p>
+</div>
+
+<% if @blog.user.id == current_user.id %>
+  <p>
+    <%= link_to t('Edit'), edit_blog_path(@blog) %> |
+    <%= link_to t('Delete'), blog_path, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </p>
+<% end %>
+
+<p><%= link_to t('Back'), blogs_path %></p>

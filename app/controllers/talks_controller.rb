@@ -1,10 +1,11 @@
 class TalksController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @talks = Talk.all
   end
 
   def create
-    if logged_in?
       # 該当のユーザ間での会話が過去に存在しているか？
       if Talk.between(params[:sender_id], params[:receiver_id]).present?
         # 存在した場合、その会話（チャットルーム）情報を取得
@@ -15,7 +16,6 @@ class TalksController < ApplicationController
       end
       # その会話のチャットルーム(メッセージの一覧画面)へ
       redirect_to talk_messages_path(@talk)
-    end
   end
 
   private
