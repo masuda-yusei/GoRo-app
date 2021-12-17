@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   def index
     admin = User.find_by(email:"admin@example.com")
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).where.not(id: admin.profile.id).includes(:place).order(updated_at: :desc).page(params[:page]).per(12)
+    @profiles = @q.result(distinct: true)#.where.not(id: admin.profile.id).includes(:residence).order(updated_at: :desc).page(params[:page]).per(12)
   end
 
   # GET /profiles/1

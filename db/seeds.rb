@@ -1,41 +1,41 @@
 admin = User.create!(
   name:"GoRo公式アカウント",
-  email:"admin_user@gmail.com",
+  email:"test6@gmail.com",
   password:"111111",
   admin: true,
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 
 user1 = User.create!(
   name: "Yusei",
-  email: "yusei@gmail.com",
+  email: "test1@gmail.com",
   password: "111111",
   admin: true,
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 user2 = User.create!(
   name: "Yoshiki",
-  email: "yoshiki@gmail.com",
+  email: "test2@gmail.com",
   password: "111111",
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 user3 = User.create!(
   name: "Yamada",
-  email: "yamada@gmail.com",
+  email: "test3@gmail.com",
   password: "111111",
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 user4 = User.create!(
   name: "Toshi",
-  email: "toshi@gmail.com",
+  email: "test4@gmail.com",
   password: "111111",
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 user5 = User.create!(
   name: "Kei",
-  email: "kei@gmail.com",
+  email: "test5@gmail.com",
   password: "111111",
-  confirmed_at: Time.now,
+  confirmed_at: Time.now
 )
 
 profile1 = user1.build_profile(
