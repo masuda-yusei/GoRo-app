@@ -1,6 +1,6 @@
 admin = User.create!(
   name:"GoRo公式アカウント",
-  email:"admin@gmail.com",
+  email:"admin_user@gmail.com",
   password:"111111",
   admin: true,
   confirmed_at: Time.now,
@@ -43,7 +43,7 @@ profile1 = user1.build_profile(
   icon: "profile.jpg",
   gender: "男性",
   birthday: "1994-09-02",
-  residence_id: 1,
+  residence: 1,
   introduction: "学生時代からゴルフを始めました！　よろしくお願いします！"
 )
 profile1.save
@@ -53,7 +53,7 @@ profile2 = user2.build_profile(
   icon: "profile.jpg",
   gender: "男性",
   birthday: "1995-08-02",
-  residence_id: 2,
+  residence: 2,
   introduction: "ベストスコア80です！　よろしくお願いします！"
 )
 profile2.save
@@ -63,7 +63,7 @@ profile3 = user3.build_profile(
   icon: "profile.jpg",
   gender: "男性",
   birthday: "1996-07-11",
-  residence_id: 3,
+  residence: 3,
   introduction: "一緒にラウンドしましょう！"
 )
 profile3.save
@@ -73,7 +73,7 @@ profile4 = user4.build_profile(
   icon: "profile.jpg",
   gender: "男性",
   birthday: "1990-07-11",
-  residence_id: 4,
+  residence: 4,
   introduction: "最近趣味でゴルフ始めました！"
 )
 profile4.save
@@ -83,7 +83,7 @@ profile5 = user5.build_profile(
   icon: "profile.jpg",
   gender: "男性",
   birthday: "1988-07-11",
-  residence_id: 5,
+  residence: 5,
   introduction: "初心者ですが、よろしくお願いします！"
 )
 profile5.save

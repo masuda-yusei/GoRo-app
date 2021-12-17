@@ -26,7 +26,8 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
-    @profile.residence_id = residence_param
+    # binding.irb
+    # @profile.residence = residence_param
     if @profile.update(profile_params)
       redirect_to @profile, notice: t('notice.update', model: t('profile'))
     else
