@@ -18,7 +18,7 @@
         <ul class="uk-iconnav uk uk-position-large uk-position-right", id="nav_list">
           <% if user_signed_in? %>
             <li><%= link_to profiles_path do %><span uk-icon="icon: users"><% end %></li>
-            <li><%= link_to users_path do %><span uk-icon="icon: search"><% end %></li>
+            <%# <li><%= link_to users_path do %>
             <li><%= link_to blogs_path do %><span uk-icon="icon: pencil"><% end %></li>
             <li><%= link_to talks_path do %><span uk-icon="icon: mail"><% end %></li>
           <% else %>

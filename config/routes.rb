@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'confirm_email', to: 'users/registrations#confirm_email'
   end
 
-  resources :users
+  # resources :users
 
 
   if Rails.env.development?
