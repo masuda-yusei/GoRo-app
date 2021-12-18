@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "profile_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_favorites_on_profile_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
   end
 
   add_foreign_key "blogs", "users"
+  add_foreign_key "favorites", "profiles"
   add_foreign_key "favorites", "users"
   add_foreign_key "golf_informations", "users"
   add_foreign_key "messages", "talks"

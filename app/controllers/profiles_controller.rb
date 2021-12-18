@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
   def show
     # @users = @profile.users.order(updated_at: :desc).limit(4)
     @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
+    @favorite = current_user.favorites.find_by(profile_id: @profile.id)
   end
 
   # GET /profiles/1/edit
@@ -34,6 +35,11 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
+
+  def favorite
+    @favorites = current_user.favorites.page(params[:page]).per(3)
+  end
+
 
   private
   def set_profile

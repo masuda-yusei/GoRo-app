@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index create]
   end
   resources :favorites, only: [:create, :destroy]
-  resources :profiles
+  resources :profiles do
+    collection do
+      get :favorite
+    end
+  end
   resources :golf_informations
   resources :blogs
 

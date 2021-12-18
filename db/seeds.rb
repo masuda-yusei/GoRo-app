@@ -1,6 +1,6 @@
 admin = User.create!(
   name:"GoRo公式アカウント",
-  email:"test6@gmail.com",
+  email:"test15@gmail.com",
   password:"111111",
   admin: true,
   confirmed_at: Time.now
@@ -8,32 +8,32 @@ admin = User.create!(
 
 user1 = User.create!(
   name: "Yusei",
-  email: "test1@gmail.com",
+  email: "test16@gmail.com",
   password: "111111",
   admin: true,
   confirmed_at: Time.now
 )
 user2 = User.create!(
   name: "Yoshiki",
-  email: "test2@gmail.com",
+  email: "test11@gmail.com",
   password: "111111",
   confirmed_at: Time.now
 )
 user3 = User.create!(
   name: "Yamada",
-  email: "test3@gmail.com",
+  email: "test12@gmail.com",
   password: "111111",
   confirmed_at: Time.now
 )
 user4 = User.create!(
   name: "Toshi",
-  email: "test4@gmail.com",
+  email: "test13@gmail.com",
   password: "111111",
   confirmed_at: Time.now
 )
 user5 = User.create!(
   name: "Kei",
-  email: "test5@gmail.com",
+  email: "test14@gmail.com",
   password: "111111",
   confirmed_at: Time.now
 )
@@ -139,19 +139,24 @@ profile5.save
 # golf_information5.save
 
 Favorite.create!(
-  user_id: user1.id
+  user_id: user1.id,
+  profile_id: profile1.id
 )
 Favorite.create!(
-  user_id: user2.id
+  user_id: user2.id,
+  profile_id: profile2.id
 )
 Favorite.create!(
-  user_id: user4.id
+  user_id: user4.id,
+  profile_id: profile2.id
 )
 Favorite.create!(
-  user_id: user5.id
+  user_id: user5.id,
+  profile_id: profile2.id
 )
 Favorite.create!(
-  user_id: user3.id
+  user_id: user3.id,
+  profile_id: profile2.id
 )
 
 talk1 = Talk.create!(
@@ -238,4 +243,4 @@ Blog.create!(
   title: "トーナメント観戦",
   content: "プロの技術力に圧倒された。自分もプロみたいに上手くなれるよう練習しよう。",
   user_id: user4.id,
-) 
+)
