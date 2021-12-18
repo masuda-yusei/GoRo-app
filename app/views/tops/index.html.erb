@@ -2,15 +2,20 @@
   <div class="container">
     <nav class="navbar navbar-light">
       <a class="navbar-brand text-white">GoRo - Golf Round</a>
-      <div class="navbar__sign-in-btn">
-        <%= link_to "ログイン", new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
-      </div>
-      <div class="navbar__gest_sign-in-btn">
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
-      </div>
-      <div class="navbar__gest_admin_sign-in-btn">
-        <%= link_to "ゲスト管理ログイン", users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %>
-      </div>
+      <% unless user_signed_in? %>
+        <div class="navbar__sign-in-btn">
+          <%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン
+          <% end %>
+        </div>
+        <div class="navbar__gest_sign-in-btn">
+          <%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン
+          <% end %>
+        </div>
+        <div class="navbar__gest_admin_sign-in-btn">
+          <%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン
+          <% end %>
+        </div>
+      <% end %>
     </nav>
   </div>
 

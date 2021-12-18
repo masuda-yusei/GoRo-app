@@ -18,7 +18,7 @@
         <ul class="uk-iconnav uk uk-position-large uk-position-right", id="nav_list">
           <% if user_signed_in? %>
             <li><%= link_to profiles_path do %><span uk-icon="icon: users"><% end %></li>
-            <li><%= link_to users_path do %><span uk-icon="icon: search"><% end %></li>
+            <%# <li><%= link_to users_path do %>
             <li><%= link_to blogs_path do %><span uk-icon="icon: pencil"><% end %></li>
             <li><%= link_to talks_path do %><span uk-icon="icon: mail"><% end %></li>
           <% else %>
@@ -38,7 +38,7 @@
                 <%# <><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %>
                 <li><%= link_to "ゴルフブログを見る", blogs_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "メッセージを見る", talks_path, data: {"turbolinks" => false} %></li>
-                <li><%= link_to "お気に入りしたゴルファーを見る", favorites_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "お気に入りしたゴルファーを見る", favorite_profiles_path, data: {"turbolinks" => false} %></li>
                 <li class="uk-nav-divider"></li>
                 <li>
                   <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
