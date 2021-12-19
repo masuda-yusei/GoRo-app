@@ -3,24 +3,24 @@
 </p>
 
 <p>
-  <strong>自己紹介:</strong>
+  <strong>　自己紹介:</strong>
   <%= @profile.introduction %>
 </p>
 
 <p>【基本情報】</p>
 
 <p>
-  <strong>ユーザー名:</strong>
+  <strong>　ユーザー名:</strong>
   <%= @profile.user.name %>
 </p>
 
 <p>
-  <strong>性別:</strong>
+  <strong>　性別:</strong>
   <%= @profile.gender %>
 </p>
 
 <p>
-  <strong>年齢:</strong>
+  <strong>　年齢:</strong>
   <% if  @profile.birthday.present? 
     # <%# <%= @profile.birthday %> 
   <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birthday.strftime('%Y%m%d').to_i) / 10000 %>歳
@@ -28,34 +28,34 @@
 </p>
 
 <p>
-  <strong>居住地:</strong>
+  <strong>　居住地:</strong>
   <%= @profile.residence %>
 </p>
 
 <p>【ゴルフ情報】</p>
 
 <p>
-  <strong>ゴルフ歴:</strong>
+  <strong>　ゴルフ歴:</strong>
   <%= @profile.golf_history %>
 </p>
 
 <p>
-  <strong>平均スコア:</strong>
+  <strong>　平均スコア:</strong>
   <%= @profile.average_score %>
 </p>
 
 <p>
-  <strong>年間ラウンド回数:</strong>
+  <strong>　年間ラウンド回数:</strong>
   <%= @profile.annual_round_time %>
 </p>
 
 <p>
-  <strong>プレー可能日:</strong>
+  <strong>　プレー可能日:</strong>
   <%= @profile.playable_date %>
 </p>
 
 <p>
-  <strong>移動手段:</strong>
+  <strong>　移動手段:</strong>
   <%= @profile.pick_up %>
 </p>
 
