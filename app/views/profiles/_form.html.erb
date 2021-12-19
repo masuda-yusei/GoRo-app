@@ -37,10 +37,30 @@
   <%# <div class="field">
     <%= form.label :residence %>
     <%# <%= collection_select :residence, residence.all, :code, :name, include_blank: "エリアを選択してください" %>
-  <%# </div> %> 
+  <%# </div> %>
 
 
     <%= form.select :residence, Profile.residences.keys, {} %>
+
+    <%= form.select :golf_history, Profile.golf_histories.keys, {} %>
+
+    <%= form.select :average_score, Profile.average_scores.keys, {} %>
+
+    <%= form.number_field :annual_round_time %>
+
+    <div class="field">
+      <%= form.label :playable_date %>
+      <div class="playable_date_area clearfix">
+      <%= form.collection_radio_buttons :playable_date, Profile.playable_dates,:first, :first %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :pick_up %>
+      <div class="pick_up_area clearfix">
+      <%= form.collection_radio_buttons :pick_up, Profile.pick_ups,:first, :first %>
+      </div>
+    </div>
 
 
   <div class="field">

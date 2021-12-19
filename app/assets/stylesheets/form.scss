@@ -61,6 +61,35 @@ textarea{
 
 }
 
+.playable_date_area label{
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  margin-right: -30px;
+}
+.playable_date_area input{
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+}
+
+.pick_up_area label{
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  margin-right: -20px;
+}
+.pick_up_area input{
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+}
+
+
 #profile_icon{
   border: none;
 }

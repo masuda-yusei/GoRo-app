@@ -47,6 +47,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction)
+    params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction, :golf_history, :average_score, :annual_round_time, :playable_date, :pick_up )
   end
 end
