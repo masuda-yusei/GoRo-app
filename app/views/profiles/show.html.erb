@@ -1,36 +1,71 @@
 <p>
-  <strong>User:</strong>
-  <%= @profile.user.name %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
   <%= image_tag @profile.icon.url %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
+  <strong>自己紹介:</strong>
+  <%= @profile.introduction %>
+</p>
+
+<p>【基本情報】</p>
+
+<p>
+  <strong>ユーザー名:</strong>
+  <%= @profile.user.name %>
+</p>
+
+<p>
+  <strong>性別:</strong>
   <%= @profile.gender %>
 </p>
 
 <p>
-  <strong>Birthday:</strong>
-  <% if  @profile.birthday.present? %> 
-    <%= @profile.birthday %>
-</p>
-
+  <strong>年齢:</strong>
+  <% if  @profile.birthday.present? 
+    # <%# <%= @profile.birthday %> 
   <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birthday.strftime('%Y%m%d').to_i) / 10000 %>歳
   <% end %>
+</p>
 
 <p>
-  <strong>residence:</strong>
+  <strong>居住地:</strong>
   <%= @profile.residence %>
 </p>
 
+<p>【ゴルフ情報】</p>
+
 <p>
-  <strong>Introduction:</strong>
-  <%= @profile.introduction %>
+  <strong>ゴルフ歴:</strong>
+  <%= @profile.golf_history %>
 </p>
+
+<p>
+  <strong>平均スコア:</strong>
+  <%= @profile.average_score %>
+</p>
+
+<p>
+  <strong>年間ラウンド回数:</strong>
+  <%= @profile.annual_round_time %>
+</p>
+
+<p>
+  <strong>プレー可能日:</strong>
+  <%= @profile.playable_date %>
+</p>
+
+<p>
+  <strong>移動手段:</strong>
+  <%= @profile.pick_up %>
+</p>
+
+      <%# <p>
+        <% @golf_informations.each do |golf_information| %>
+          <%# <><%= golf_information.golf_history %>
+        <%# <% end %>
+      <%# <p>  %>
+
+
 
 <% if @profile.user_id == current_user.id %>
         <p><%= link_to 'プロフィールを編集する', edit_profile_path(@profile), class: "btn btn-warning" %></p>

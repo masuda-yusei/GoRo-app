@@ -33,18 +33,6 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "golf_informations", force: :cascade do |t|
-    t.integer "golf_history"
-    t.integer "average_score"
-    t.integer "annual_round_times"
-    t.date "playable_date"
-    t.string "pick_up"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_golf_informations_on_user_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "talk_id"
@@ -62,6 +50,11 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
     t.date "birthday"
     t.integer "residence"
     t.text "introduction"
+    t.integer "golf_history"
+    t.integer "average_score"
+    t.integer "annual_round_time"
+    t.integer "playable_date"
+    t.integer "pick_up"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -102,7 +95,6 @@ ActiveRecord::Schema.define(version: 2021_12_12_020228) do
   add_foreign_key "blogs", "users"
   add_foreign_key "favorites", "profiles"
   add_foreign_key "favorites", "users"
-  add_foreign_key "golf_informations", "users"
   add_foreign_key "messages", "talks"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"

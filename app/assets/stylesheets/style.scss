@@ -2,6 +2,19 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+header {
+  background-color: #8fbc8f;
+  display: flex;
+}
+
+.fa-address-card {
+  position: sticky; /* 変更 */
+    top: 0;
+    height: 0; /* 追加 */
+    text-align: right;
+}
+
+
 body{
   background-color: #faf8f8;
   color: #524c4c;

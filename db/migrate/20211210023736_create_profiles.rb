@@ -6,6 +6,11 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.date :birthday
       t.integer :residence
       t.text :introduction
+      t.integer :golf_history
+      t.integer :average_score
+      t.integer :annual_round_time
+      t.integer :playable_date
+      t.integer :pick_up
       t.references :user, foreign_key: true
       t.timestamps
     end
