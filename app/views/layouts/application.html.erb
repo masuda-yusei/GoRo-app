@@ -19,11 +19,13 @@
         </div>
     <% end %>
       <div align="right" class="float_right">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <% if user_signed_in? %>
+              <%# <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-address-card fa-5x"></i>
-              </a>
+              </a> %>
             <%# <p>メニュー一覧</p> %>
-              <ul class="dropdown-menu">
+              <ul class="menu">
+              <br>
                 <li><%= link_to "ゴルファーを見る", profiles_path, data: {"turbolinks" => false} %></li>
                 <%# <><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %>
                 <li><%= link_to "ゴルフブログを見る", blogs_path, data: {"turbolinks" => false} %></li>
@@ -54,7 +56,8 @@
                 </li>
               </ul>
             </li>
-        </div>
+          </div>
+        <% end %>
       </header>
 
         <% if notice %>
