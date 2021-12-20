@@ -10,7 +10,6 @@ user1 = User.create!(
   name: "Yusei",
   email: "7575you@gmail.com",
   password: "111111",
-  admin: true,
   confirmed_at: Time.now
 )
 user2 = User.create!(
