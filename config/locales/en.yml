@@ -36,7 +36,6 @@ en:
     destroy: "%{model} was successfully destroyed."
   user: User
   profile: Profile
-  golf_information: Golf_Information
   member: Member
   favorite: Favorite
   blog: Blog

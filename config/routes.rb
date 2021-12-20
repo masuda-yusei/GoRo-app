@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       get :favorite
     end
   end
-  resources :golf_informations
   resources :blogs
 
 
