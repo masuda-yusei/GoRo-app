@@ -32,10 +32,12 @@
     <p>ぜひラウンドを通して、交友関係を深めてみてください！</p>
     </h2>
   </div>
-
+  
+  <% unless user_signed_in? %>
   <div class="top-authentication text-left">
     <div class="top-authentication__sign-up-btn m-3">
       <%= link_to "アカウントを作成する", new_user_registration_path, class: "btn text-white" %>
     </div>
   </div>
+  <% end %>
 </div>

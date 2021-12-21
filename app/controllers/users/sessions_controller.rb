@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :require_admin
+  before_action :check_admin
+
   def new_guest
     user = User.guest
     sign_in user
@@ -13,6 +14,12 @@ class Users::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to profile_path(user.profile.id), notice: 'ゲスト管理者ユーザーとしてログインしました'
   end
+
+  def check_admin
+    redirect_to tops_index_path, notice: 'アクセス権限がありません' if current_user.present?
+  end
+
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -42,5 +49,6 @@ class Users::SessionsController < Devise::SessionsController
   #   unless current_user.admin?
   #     redirect_to tops_index_path, notice: "管理者ではないためこのページにアクセスできません"
   #   end
-  # end  
+  # end 
+
 end

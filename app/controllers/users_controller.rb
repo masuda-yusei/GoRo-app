@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_admin
+  # before_action :admin_check
   # GET /users
   def show
     @user = User.find(params[:id])
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  private
+  # private
   # def require_admin
   #   unless current_user.admin?
   #     redirect_to tops_index_path, notice: "管理者ではないためこのページにアクセスできません"
