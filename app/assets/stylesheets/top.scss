@@ -15,8 +15,8 @@
 
 .top-title {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  right: 25%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -24,24 +24,29 @@
 
 .top-authentication {
   position: absolute;
-  top: 80%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%,-50%);
   &__sign-up-btn {
     background: #FD3378;
-    border-radius: 30px;
+    border-radius: 40px;
     padding: 4px;
     white-space: nowrap;
-  }
-  &__sign-in-btn {
-    border-radius: 30px;
-    padding: 4px;
-    white-space: nowrap;
-    border-style: solid;
-    border-color: #fff;
-    border-width: 2px;
   }
 }
+
+.menu{
+  display: flex;
+	// flex-wrap:wrap;
+}
+
+.menu li {
+	width: calc(100%/8);/*←画像を横に4つ並べる場合*/
+	padding:0 20px;/*←画像の左右に5pxの余白を入れる場合*/
+	box-sizing:border-box;
+  word-break: keep-all;
+}
+
 
 @media (max-width: 767px) {
   .navbar__sign-in-btn {

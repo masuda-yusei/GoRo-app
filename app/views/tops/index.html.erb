@@ -1,26 +1,30 @@
 <div class="jumbotron">
   <div class="container">
     <nav class="navbar navbar-light">
-      <a class="navbar-brand text-success">GoRo - Golf Round</a>
-      <% unless user_signed_in? %>
-        <div class="navbar__sign-in-btn">
-          <%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン
-          <% end %>
-        </div>
-        <div class="navbar__gest_sign-in-btn">
-          <%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン
-          <% end %>
-        </div>
-        <div class="navbar__gest_admin_sign-in-btn">
-          <%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン
-          <% end %>
-        </div>
-      <% end %>
+      <a align="left" class="navbar-brand text-success">GoRo - Golf Round</a>
+      <div align="right" class="float_right">
+        <ul class="menu">
+        <% unless user_signed_in? %>
+          <div class="navbar__sign-in-btn">
+            <li><%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン</li>
+            <% end %>
+          </div>
+          <div class="navbar__gest_sign-in-btn">
+            <li><%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン</li>
+            <% end %>
+          </div>
+          <div class="navbar__gest_admin_sign-in-btn">
+            <li><%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン</li>
+            <% end %>
+          </div>
+        <% end %>
+        </ul>
+      </div>
     </nav>
   </div>
 
   <div class="top-title">
-    <h1 class="text-black-50 text-left">
+    <h1 class="text-black-50 text-right">
       <p>ゴルフをもっと楽しみたい方へ</p>
     </h1>
     <br>
