@@ -40,11 +40,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 2..25 }
 
-  after_create :create_profile, #:initial_message
+  # after_create :create_profile, #:initial_message
 
-  def create_profile
-    create_profile!(id: id, gender: 1, birthday: "1992-08-02", residence: 1, golf_history: 1, average_score: 9, annual_round_time: 5, playable_date: 1 )
-  end
+  # def create_profile
+  #   create_profile!(id: id, gender: 1, birthday: "1992-08-02", residence: 1, golf_history: 1, average_score: 9, annual_round_time: 5, playable_date: 1 )
+  # end
 
   # def initial_message
   #   admin = User.find_by(email:"you@gmail.com")
