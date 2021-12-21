@@ -22,6 +22,6 @@ class Profile < ApplicationRecord
   enum playable_date: { '土日': 1, '平日': 2, '土日・平日どちらも可': 3 }
   enum pick_up: { '送迎お願いします': 1, '自分でゴルフ場に行けます': 2 }
   
-  validates :residence, presence: true
+  # validates :residence, presence: true
   validates :introduction, length: { maximum: 1000 }
 end
