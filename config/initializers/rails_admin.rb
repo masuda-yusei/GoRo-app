@@ -8,8 +8,12 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
-  ## == CancanCan ==
-  config.authorize_with :cancancan
+  config.authorize_with do
+    unless current_user.try(:admin?)
+      flash.alert = 'このページにアクセスする権限がありません。'
+      redirect_to main_app.root_path
+    end
+  end
 
   ## == Pundit ==
   # config.authorize_with :pundit
