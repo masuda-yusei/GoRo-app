@@ -15,8 +15,8 @@
 
 .top-title {
   position: absolute;
-  top: 30%;
-  right: 25%;
+  top: 32%;
+  right: 0%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -35,36 +35,36 @@
   }
 }
 
-.menu{
+.login{
   display: flex;
 	// flex-wrap:wrap;
 }
 
-.menu li {
-	width: calc(100%/8);/*←画像を横に4つ並べる場合*/
-	padding:0 20px;/*←画像の左右に5pxの余白を入れる場合*/
+.login li {
+	width: calc(100%/3);/*←画像を横に4つ並べる場合*/
+	padding:0 40px;/*←画像の左右に5pxの余白を入れる場合*/
 	box-sizing:border-box;
   word-break: keep-all;
 }
 
 
-@media (max-width: 767px) {
-  .navbar__sign-in-btn {
-    display: none;
-  }
-}
+// @media (max-width: 767px) {
+//   .navbar__sign-in-btn {
+//     display: none;
+//   }
+// }
 
-@media (max-width: 767px) {
-  .navbar__gest_sign-in-btn {
-    display: none;
-  }
-}
+// @media (max-width: 767px) {
+//   .navbar__gest_sign-in-btn {
+//     display: none;
+//   }
+// }
 
-@media (max-width: 767px) {
-  .navbar__gest_admin_sign-in-btn {
-    display: none;
-  }
-}
+// @media (max-width: 767px) {
+//   .navbar__gest_admin_sign-in-btn {
+//     display: none;
+//   }
+// }
 
 @media (min-width: 768px) {
   .top-authentication {

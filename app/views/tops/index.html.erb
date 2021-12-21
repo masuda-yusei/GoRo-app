@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light">
       <a align="left" class="navbar-brand text-success">GoRo - Golf Round</a>
       <div class="float_right">
-        <ul class="menu">
+        <ul class="login">
         <% unless user_signed_in? %>
           <%# <div class="navbar__sign-in-btn"> %>
             <li><%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン</li>
@@ -24,16 +24,16 @@
   </div>
 
   <div class="top-title">
-    <h1 class="text-black-50 text-right">
+    <h1 class="text-black-50 text-left">
       <p>ゴルフをもっと楽しみたい方へ</p>
     </h1>
     <br>
-    <br>
-    <br>
+
     <h2 class="text-black-50 text-left">
     <p>男女問わず、ゴルフでマッチングできるアプリ</p>
     <p>男性同士、女性同士でもマッチングができます！</p>
-    <p>ぜひラウンドを通して、交友関係を深めてみてください！</p>
+    <p>ぜひラウンドを通して、</p>
+    <p>交友関係を深めてみてください！</p>
     </h2>
   </div>
   
