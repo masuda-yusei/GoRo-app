@@ -3,13 +3,14 @@
 
 .menu{
   display: flex;
-	flex-wrap:wrap;
+	// flex-wrap:wrap;
 }
 
 .menu li {
 	width: calc(100%/8);/*←画像を横に4つ並べる場合*/
-	padding:0 5px;/*←画像の左右に5pxの余白を入れる場合*/
+	padding:0 30px;/*←画像の左右に5pxの余白を入れる場合*/
 	box-sizing:border-box;
+  word-break: keep-all;
 }
 
 .form_area{
