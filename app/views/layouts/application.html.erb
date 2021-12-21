@@ -26,22 +26,13 @@
             <%# <p>メニュー一覧</p> %>
               <ul class="menu">
               <br>
-                <li><%= link_to "ゴルファーを見る", profiles_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "ゴルファー一覧", profiles_path, data: {"turbolinks" => false} %></li>
                 <%# <><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %>
-                <li><%= link_to "ゴルフブログを見る", blogs_path, data: {"turbolinks" => false} %></li>
-                <li><%= link_to "メッセージを見る", talks_path, data: {"turbolinks" => false} %></li>
-                <li><%= link_to "お気に入りしたゴルファーを見る", favorite_profiles_path, data: {"turbolinks" => false} %></li>
-                <li class="uk-nav-divider"></li>
-                <li>
-                  <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
-                    <span class="uk-margin-small-right" uk-icon="icon: user"></span>マイページ
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to edit_user_registration_path, data: {"turbolinks" => false} do %>
-                    <span class="uk-margin-small-right" uk-icon="icon: lock"></span>アカウント
-                  <% end %>
-                </li>
+                <li><%= link_to "ゴルフブログ", blogs_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "メッセージ一覧", talks_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "お気に入り一覧", favorite_profiles_path, data: {"turbolinks" => false} %></li>
+                <li><%= link_to "マイページ", profile_path(current_user.id), data: {"turbolinks" => false} %></li>
+                <li><%= link_to "アカウント", edit_user_registration_path, data: {"turbolinks" => false} %></li>
                 <li>
                   <% if current_user.try(:admin?) %>
                     <%= link_to rails_admin_path, data: {"turbolinks" => false} do %>

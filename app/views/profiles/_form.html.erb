@@ -39,14 +39,29 @@
     <%# <%= collection_select :residence, residence.all, :code, :name, include_blank: "エリアを選択してください" %>
   <%# </div> %>
 
+  <div class="field">
+    <%= form.label :residence %>
+    <div class="residence clearfix">
+    <%= form.select:residence, Profile.residences.keys, {} %></div>
+  </div>
 
-    <%= form.select :residence, Profile.residences.keys, {} %>
+  <div class="field">
+    <%= form.label :golf_history %>
+    <div class="golf_history clearfix">
+    <%= form.select:golf_history, Profile.golf_histories.keys, {} %></div>
+  </div>
 
-    <%= form.select :golf_history, Profile.golf_histories.keys, {} %>
+  <div class="field">
+    <%= form.label :average_score %>
+    <div class="average_score clearfix">
+    <%= form.select:average_score, Profile.average_scores.keys, {} %></div>
+  </div>
 
-    <%= form.select :average_score, Profile.average_scores.keys, {} %>
-
-    <%= form.number_field :annual_round_time %>
+  <div class="field">
+    <%= form.label :annual_round_time %>
+    <div class="annual_round_time clearfix">
+    <%= form.number_field:annual_round_time %></div>
+  </div>
 
     <div class="field">
       <%= form.label :playable_date %>
