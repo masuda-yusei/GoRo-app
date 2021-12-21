@@ -2,21 +2,21 @@
   <div class="container">
     <nav class="navbar navbar-light">
       <a align="left" class="navbar-brand text-success">GoRo - Golf Round</a>
-      <div align="right" class="float_right">
+      <div class="float_right">
         <ul class="menu">
         <% unless user_signed_in? %>
-          <div class="navbar__sign-in-btn">
+          <%# <div class="navbar__sign-in-btn"> %>
             <li><%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン</li>
             <% end %>
-          </div>
-          <div class="navbar__gest_sign-in-btn">
+          <%# </div> %>
+          <%# <div class="navbar__gest_sign-in-btn"> %>
             <li><%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン</li>
             <% end %>
-          </div>
-          <div class="navbar__gest_admin_sign-in-btn">
+          <%# </div> %>
+          <%# <div class="navbar__gest_admin_sign-in-btn"> %>
             <li><%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン</li>
             <% end %>
-          </div>
+          <%# </div> %>
         <% end %>
         </ul>
       </div>
