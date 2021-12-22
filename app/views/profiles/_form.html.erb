@@ -1,4 +1,5 @@
-<%= form_with( scope: profile, local: true, method: :patch, url: profile_path(profile.id)) do |form| %>
+<%# <%= form_with( scope: profile, local: true, method: :patch, url: profile_path(profile.user.id)) do |form| %>
+<%= form_with(model: profile, local: true) do |form| %>
   <% if profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(profile.errors.count, "件") %>のエラーが見つかりました</h2>

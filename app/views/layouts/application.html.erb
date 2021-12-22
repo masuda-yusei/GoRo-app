@@ -32,7 +32,8 @@
                 <li><%= link_to "メッセージ一覧", talks_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "お気に入り一覧", favorite_profiles_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "マイページ", profile_path(current_user.id), data: {"turbolinks" => false} %></li>
-                <li><%= link_to "アカウント", edit_user_registration_path, data: {"turbolinks" => false} %></li>
+                <%# <><%= link_to "アカウント", edit_user_registration_path, data: {"turbolinks" => false} %>
+                <li><%= link_to "アカウント", edit_user_path(current_user.id), data: {"turbolinks" => false} %></li>
                 <li>
                   <% if current_user.try(:admin?) %>
                     <%= link_to rails_admin_path, data: {"turbolinks" => false} do %>
@@ -62,7 +63,7 @@
           <% unless [tops_index_path, root_path].map{|p| current_page?(p)}.any? %>
             <% if user_signed_in? %>
               <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
-                <% if current_user.profile.icon? %>
+                <% if current_user.profile.present? %>
                   <%= image_tag current_user.profile.icon.url %>
                 <% else %>
                   <%= image_tag asset_path("default_icon.png") %>

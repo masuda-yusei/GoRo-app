@@ -18,7 +18,13 @@ class Users::SessionsController < Devise::SessionsController
   def check_admin
     redirect_to tops_index_path, notice: 'アクセス権限がありません' if current_user.present?
   end
-
+  
+  # def destroy
+  #   #ログアウトする（sessions_helperのlog_outメソッド）
+  #   log_out
+  #   #ルートURLにリダイレクト
+  #   redirect_to root_url
+  # end
 
   # before_action :configure_sign_in_params, only: [:create]
 

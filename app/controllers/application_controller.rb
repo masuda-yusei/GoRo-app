@@ -22,9 +22,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_in_path_for(resource_or_scope)
-    profile_path(resource_or_scope.profile.id)
-  end
+  # def after_sign_in_path_for(resource_or_scope)
+  #   prorile_path(resource_or_scope.profile.id)
+  # end
+
+
+  # def after_sign_out_path_for(resource_or_scope)
+  #   prorile_path(resource_or_scope.profile.id)
+  # end
 
   # def admin_check
     # if @current_user.try(:admin?)
