@@ -6,16 +6,19 @@
         <ul class="login">
         <% unless user_signed_in? %>
           <%# <div class="navbar__sign-in-btn"> %>
-            <li><%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン</li>
+            <%= link_to new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" do %>ログイン
             <% end %>
+            &nbsp;&nbsp;
           <%# </div> %>
           <%# <div class="navbar__gest_sign-in-btn"> %>
-            <li><%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン</li>
+            <%= link_to users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲストログイン
             <% end %>
+            &nbsp;&nbsp;
           <%# </div> %>
           <%# <div class="navbar__gest_admin_sign-in-btn"> %>
-            <li><%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン</li>
+            <%= link_to users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post do %>ゲスト管理ログイン
             <% end %>
+            &nbsp;&nbsp;
           <%# </div> %>
         <% end %>
         </ul>

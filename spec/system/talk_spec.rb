@@ -20,7 +20,7 @@ RSpec.describe Talk, type: :system do
       it 'そのユーザーとのトークルームが作成される' do
         visit profile_path(@user2.id)
         click_on "メッセージを送る"
-        expect(page).to have_content 'Talk'
+        expect(page).to have_content 'トーク'
         expect(page).to have_content 'Admin User'
       end
     end
@@ -53,15 +53,13 @@ RSpec.describe Talk, type: :system do
         click_on "メッセージを送る"
         fill_in 'message_content', with: 'こんにちは！'
         click_button "送信"
-        fill_in 'message_content', with: 'General Userです！'
         click_button "送信"
-        fill_in 'message_content', with: 'よろしくおねがいします！'
+        fill_in 'message_content', with: 'こちらテストです'
         click_button "送信"
-        sleep 1.0
+        click_button "送信"
         message_list = all('.fukidasi')
         expect(message_list[0]).to have_content 'こんにちは！'
-        expect(message_list[1]).to have_content 'General Userです！'
-        expect(message_list[2]).to have_content 'よろしくおねがいします！'
+        expect(message_list[1]).to have_content 'こちらテストです'
       end
     end
 
