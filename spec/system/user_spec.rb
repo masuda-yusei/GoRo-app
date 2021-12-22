@@ -3,13 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :system do
 
   describe 'アクセス制限・サインアップのテスト' do
-    context 'ユーザーがログインせずにユーザー一覧ページにアクセスした場合' do
-      it 'ログイン画面に遷移' do
-        visit users_path
-        expect(page).to have_content 'ログイン'
-      end
-    end
-    context 'ログインせずユーザー一覧ページにアクセスした場合' do
+    context 'ユーザーがログインせずにプロフィール覧ページにアクセスした場合' do
       it 'ログイン画面に遷移' do
         visit profiles_path
         expect(page).to have_content 'ログイン'
@@ -25,7 +19,7 @@ RSpec.describe User, type: :system do
       it 'トップページにアクセスできる' do
         visit tops_index_path
         expect(current_path).to eq tops_index_path
-        expect(page).to have_content 'ゴルフを楽しみたい人へ'
+        expect(page).to have_content 'アカウントを作成する'
       end
     end
     context 'ユーザー新規登録をした場合' do
@@ -78,24 +72,23 @@ RSpec.describe User, type: :system do
     context 'ログイン後、アカウント編集ページにアクセスした場合' do
       it '自分のアカウント編集ページが見れる' do
         visit edit_user_registration_path
-        expect(page).to have_content 'Edit Your Account'
+        expect(page).to have_content 'アカウント編集画面'
         expect(page).to have_field 'user_email', with: 'general@ex.com'
       end
     end
-    context 'ログイン後、ユーザー一覧ページにアクセスした場合' do
-      it 'ユーザー一覧が見れる' do
-        visit users_path
-        expect(page).to have_content 'ユーザー一覧'
+    context 'ログイン後、ゴルファー一覧ページにアクセスした場合' do
+      it '各ユーザーのプロフィール一覧が見れる' do
+        visit profiles_path
+        expect(page).to have_content 'プロフィール一覧'
       end
     end
     context 'ログアウトした場合' do
       it 'ログイン画面へ遷移', js: true do
-        visit users_path
-        find("button").click
-        find("#logout").click
+        visit profiles_path
+        click_on 'ログアウト'
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'ログアウトしました'
-        expect(page).to have_content 'Log in'
+        expect(page).to have_content 'ログイン'
       end
     end
   end
@@ -123,7 +116,7 @@ RSpec.describe User, type: :system do
         sleep 1.0
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content 'アカウントを削除しました。またのご利用をお待ちしております。'
-        expect(page).to have_content 'Log in'
+        expect(page).to have_content 'ログイン'
       end
     end
   end
