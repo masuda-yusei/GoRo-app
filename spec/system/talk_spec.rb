@@ -53,11 +53,12 @@ RSpec.describe Talk, type: :system do
         click_on "メッセージを送る"
         fill_in 'message_content', with: 'こんにちは！'
         click_button "送信"
-        visit profile_path(@user2.id) 
+        visit profile_path(@user2.id)
         click_on "メッセージを送る"
         fill_in 'message_content', with: 'こちらテストです'
         click_button "送信"
-        click_button "送信"#このコードを追加するとエラーが発生しない
+        visit profile_path(@user2.id)
+        click_on "メッセージを送る"
         message_list = all('.fukidasi')
         expect(message_list[0]).to have_content 'こんにちは！'
         expect(message_list[1]).to have_content 'こちらテストです'
