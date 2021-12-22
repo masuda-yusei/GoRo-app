@@ -52,14 +52,23 @@ RSpec.describe Talk, type: :system do
         visit profile_path(@user2.id)
         click_on "メッセージを送る"
         fill_in 'message_content', with: 'こんにちは！'
+        # sleep 1.0
         click_button "送信"
         click_button "送信"
         fill_in 'message_content', with: 'こちらテストです'
+        
         click_button "送信"
         click_button "送信"
+        # sleep 1.0
+        fill_in 'message_content', with: 'こちらテスト2回目です'
+        
+        click_button "送信"
+        click_button "送信"
+
         message_list = all('.fukidasi')
         expect(message_list[0]).to have_content 'こんにちは！'
         expect(message_list[1]).to have_content 'こちらテストです'
+        expect(message_list[2]).to have_content 'こちらテスト2回目です'
       end
     end
 
