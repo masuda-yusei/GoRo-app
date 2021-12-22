@@ -43,6 +43,10 @@ class User < ApplicationRecord
   # after_create :create_profile, #:initial_message
 
   # def create_profile
+  #   create_profile!(id: id, icon: open("./app/assets/images/default_icon.png"))
+  # end
+
+  # def create_profile
   #   create_profile!(id: id, gender: 1, birthday: "1992-08-02", residence: 1, golf_history: 1, average_score: 9, annual_round_time: 5, playable_date: 1 )
   # end
 
