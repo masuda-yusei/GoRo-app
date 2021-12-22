@@ -1,10 +1,10 @@
-admin = User.create!(
-  name:"GoRo公式アカウント",
-  email:"admin@gmail.com",
-  password:"111111",
-  admin: true,
-  confirmed_at: Time.now
-)
+# admin = User.create!(
+#   name:"GoRo公式アカウント",
+#   email:"admin@gmail.com",
+#   password:"111111",
+#   admin: true,
+#   confirmed_at: Time.now
+# )q
 
 user1 = User.create!(
   name: "Yusei",
