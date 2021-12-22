@@ -21,6 +21,6 @@ class Profile < ApplicationRecord
   enum average_score: { '60': 1, '65': 2, '70': 3, '75': 4, '80': 5, '85': 6, '90': 7, '95': 8, '100': 9, '105': 10, '110': 11, '115': 12, '120': 13, '125': 14, '130': 15, '135': 16, '140': 17 }
   enum playable_date: { '土日': 1, '平日': 2, '土日・平日どちらも可': 3 }
   enum pick_up: { '送迎お願いします': 1, '自分でゴルフ場に行けます': 2 }
-  
+
   validates :introduction, length: { maximum: 1000 }
 end

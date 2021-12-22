@@ -15,4 +15,4 @@ FactoryBot.define do
     confirmed_at { Time.now }
   end
 
-end 
+end
