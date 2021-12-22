@@ -13,7 +13,7 @@ user1 = User.create!(
   confirmed_at: Time.now
 )
 user2 = User.create!(
-  name: "Yoshiki",
+  name: "Yumi",
   email: "test1@gmail.com",
   password: "111111",
   confirmed_at: Time.now
@@ -37,9 +37,26 @@ user5 = User.create!(
   confirmed_at: Time.now
 )
 
+# ゲスト管理者ログイン
+user6 = User.create!( 
+  name: "admin",
+  email: "guest_admin@example.com",
+  password: "111111",
+  confirmed_at: Time.now,
+  admin: true )
+
+
+# ゲストログイン
+user7 = User.create!(
+  name: 'Guest User',
+  email: 'guest@example.com',
+  password: '111111',
+  confirmed_at: Time.now)
+
+
 profile1 = user1.build_profile(
   # id: user1.id,
-  icon: "profile1.jpg",
+  icon: open("./app/assets/images/profile1.jpg"),
   gender: "男性",
   birthday: "1994-09-02",
   residence: 1,
@@ -54,7 +71,7 @@ profile1.save
 
 profile2 = user2.build_profile(
   # id: user2.id,
-  icon: "profile2.jpg",
+  icon: open("./app/assets/images/profile2.jpg"),
   gender: "女性",
   birthday: "1995-08-02",
   residence: 2,
@@ -69,7 +86,7 @@ profile2.save
 
 profile3 = user3.build_profile(
   # id: user3.id,
-  icon: "profile3.jpg",
+  icon: open("./app/assets/images/profile3.jpg"),
   gender: "男性",
   birthday: "1996-07-11",
   residence: 3,
@@ -84,7 +101,7 @@ profile3.save
 
 profile4 = user4.build_profile(
   # id: user4.id,
-  icon: "profile4.jpg",
+  icon: open("./app/assets/images/profile4.jpg"),
   gender: "男性",
   birthday: "1990-07-11",
   residence: 4,
@@ -99,7 +116,7 @@ profile4.save
 
 profile5 = user5.build_profile(
   # id: user5.id,
-  icon: "profile5.jpg",
+  icon: open("./app/assets/images/profile5.jpg"),
   gender: "男性",
   birthday: "1988-07-11",
   residence: 5,
@@ -111,6 +128,40 @@ profile5 = user5.build_profile(
   introduction: "初心者ですが、よろしくお願いします！"
 )
 profile5.save
+
+
+# ゲスト管理者ログイン
+profile6 = user6.build_profile(
+  icon: open("./app/assets/images/profile6.jpg"),
+  gender: "男性",
+  birthday: "1",
+  residence: 5,
+  golf_history: 1,
+  average_score: 12,
+  annual_round_time: 4,
+  playable_date: 1,
+  pick_up: 1,
+  introduction: "初心者ですが、よろしくお願いします！"
+)
+profile6.save
+
+
+# ゲストログイン
+profile7 = user7.build_profile(
+  icon: open("./app/assets/images/profile7.jpg"),
+  gender: "男性"
+  # birthday: "1988-07-11",
+  # residence: 5,
+  # golf_history: 1,
+  # average_score: 12,
+  # annual_round_time: 4,
+  # playable_date: 1,
+  # pick_up: 1,
+  # introduction: "初心者ですが、よろしくお願いします！"
+)
+profile7.save
+
+
 
 
 Favorite.create!(
