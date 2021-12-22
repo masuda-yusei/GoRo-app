@@ -1,7 +1,11 @@
 <h2>マイページ</h2>
 
 <p>
-  <%= image_tag @profile.icon.url %>
+  <% if @profile.icon? %>
+    <%= image_tag @profile.icon.url, class: "profile_icon" %>
+  <% else %>
+    <%= image_tag asset_path("default_icon.png"), class: "profile_icon" %>
+  <% end %>
 </p>
 
 <p>
