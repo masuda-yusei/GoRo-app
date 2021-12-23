@@ -31,6 +31,8 @@ class ProfilesController < ApplicationController
       @profile.user_id = current_user.id
     end
 
+    @profile = Profile.find(params[:profile_id]) if params[:profile_id].present?
+
     unless @profile.user.id == current_user.id
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
     end
