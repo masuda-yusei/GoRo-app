@@ -17,12 +17,14 @@
     <%= image_tag profile.icon.url, id: "img_prev" %>
     <%= form.hidden_field :icon_cache %>
     <%= form.file_field :icon, id: 'user_img' %>
+    <%# </div> %>
 
-  <div class="field">
+  <div class="field gender">
     <%= form.label :gender %>
     <div class="gender_area clearfix">
     <%= form.collection_radio_buttons :gender, Profile.genders,:first, :first %></div>
   </div>
+  <br />
 
   <div class="field">
     <%= form.label :birthday %>
@@ -49,7 +51,8 @@
   <div class="field">
     <%= form.label :golf_history %>
     <div class="golf_history clearfix">
-    <%= form.select:golf_history, Profile.golf_histories.keys, {} %></div>
+    <%= form.select:golf_history, Profile.golf_histories.keys, {} %>
+    </div>
   </div>
 
   <div class="field">
@@ -64,27 +67,28 @@
     <%= form.number_field:annual_round_time %></div>
   </div>
 
-    <div class="field">
+    <div class="field ">
       <%= form.label :playable_date %>
       <div class="playable_date_area clearfix">
-      <%= form.collection_radio_buttons :playable_date, Profile.playable_dates,:first, :first %>
+        <%= form.collection_radio_buttons :playable_date, Profile.playable_dates,:first, :first %>
       </div>
     </div>
 
-    <div class="field">
+    <div class="field ">
       <%= form.label :pick_up %>
-      <div class="pick_up_area clearfix">
-      <%= form.collection_radio_buttons :pick_up, Profile.pick_ups,:first, :first %>
+      <div class="playable_date_area clearfix">
+        <%= form.collection_radio_buttons :pick_up, Profile.pick_ups,:first, :first %>
       </div>
     </div>
 
-
-  <div class="field">
-    <%= form.label :introduction %>
-    <%= form.text_area :introduction, :placeholder => "ゴルフに関する感想、目標等（1000文字以内）" %>
+  <div id="introduction" class="field">
+      <%= form.label :introduction %>
+      <%= form.text_area :introduction, :placeholder => "ゴルフに関する感想、目標等（1000文字以内）" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit class:"btntextchange" %>
-  </div>
+  <div class="field ">
+    <div class="actions">
+      <%= form.submit class:"btntextchange" %>
+    </div>
+  </div> 
 <% end %>

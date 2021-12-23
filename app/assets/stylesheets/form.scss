@@ -28,9 +28,28 @@
   margin-bottom: 60px;
 }
 
-.field, .actions {
-    margin: 10px 0;
+// .field, .actions {
+//     margin: 10px 0;
+// }
+
+.gender_area {
+  height: 50px;
 }
+
+.playable_date {
+  height: 200px;
+  width: 100px;
+}
+
+.pick_up_area {
+  height: 200px;
+  width: 100px;
+}
+
+.gender, .birthday{
+  width: 100%;
+}
+
 
 label {
   display: block;
@@ -75,7 +94,7 @@ textarea{
 }
 
 .playable_date_area label{
-  width: 160px;
+  width: 192px;
   height: 50px;
   line-height: 50px;
   float: left;
@@ -88,9 +107,9 @@ textarea{
   float: left;
 }
 
-.pick_up_area label{
-  width: 200px;
-  height: 50px;
+.pick_up_area {
+  width: 300px;
+  height: 140px;
   line-height: 50px;
   float: left;
   margin-right: -20px;
@@ -101,19 +120,28 @@ textarea{
   line-height: 50px;
   float: left;
 }
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#introduction {
+  // margin-top: 70px;
+  // height: 200px;
+}
 
 
 #profile_icon{
   border: none;
 }
 
-#user_remember_me{
-  width: 20px;
-}
+// #user_remember_me{
+//   width: 20px;
+// }
 
-.rememberable label{
-  text-align: center;
-}
+// // .rememberable label{
+// //   text-align: center;
+// // }
 
 .guest, .actions input{
   width: 400px;
