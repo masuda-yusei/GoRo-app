@@ -42,6 +42,7 @@ class ProfilesController < ApplicationController
   def update
     # binding.irb
     # @profile.residence = residence_param
+    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
       redirect_to @profile, notice: t('notice.update', model: t('profile'))
     else
