@@ -18,9 +18,10 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  # def create
-  #   @user = 
-  # end
+  def create
+    @user =  User.create(name: params[:user][:name], gender: params[:user][:gender], age: params[:user][:age], residence: params[:user][:residence],
+                         golf_history: params[:user][:])
+  end
 
   def update
     @user = User.find(current_user.id)

@@ -14,13 +14,14 @@ class ProfilesController < ApplicationController
   def show
     
     if current_user.profile.blank?
-      @profile = Profile.new 
+      @profile = Profile.new
       @profile.user_id = current_user.id
     end
     @profile = Profile.find(params[:id]) if current_user.profile.present?
     # @users = @profile.users.order(updated_at: :desc).limit(4)
     @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
     @favorite = current_user.favorites.find_by(profile_id: @profile.id)
+    # binding.irb
   end
 
   # GET /profiles/1/edit
@@ -30,6 +31,8 @@ class ProfilesController < ApplicationController
       @profile = Profile.new 
       @profile.user_id = current_user.id
     end
+
+    @profile = Profile.find(params[:profile_id]) if params[:profile_id].present?
 
     unless @profile.user.id == current_user.id
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
