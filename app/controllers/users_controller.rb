@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def create
-    @user = 
-  end
+  # def create
+  #   @user = 
+  # end
 
   def update
     @user = User.find(current_user.id)
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   #   unless current_user.admin?
   #     redirect_to tops_index_path, notice: "管理者ではないためこのページにアクセスできません"
   #   end
-  # end  
+  # end 
 
 end
