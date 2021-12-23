@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'tops#index'
   get 'tops/index'
+  # show 'users/(.:format)' => '/users/:id(.:format)', as: 'users'
 
   resources :talks, only: %i[index create] do
     resources :messages, only: %i[index create]
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     confirmations: 'users/confirmations'
   }
+  resources :users
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
     get 'confirm_email', to: 'users/registrations#confirm_email'
   end
 
-  # resources :users
 
 
   if Rails.env.development?

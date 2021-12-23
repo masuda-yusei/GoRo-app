@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show edit update]
+  # before_action :set_profile, only: %i[show edit update]
   before_action :authenticate_user!
   # before_action :set_residence
 
@@ -12,6 +12,12 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    
+    if current_user.profile.blank?
+      @profile = Profile.new 
+      @profile.user_id = current_user.id
+    end
+    @profile = Profile.find(params[:id]) if current_user.profile.present?
     # @users = @profile.users.order(updated_at: :desc).limit(4)
     @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
     @favorite = current_user.favorites.find_by(profile_id: @profile.id)
@@ -19,8 +25,13 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    params[:residence] = @profile.residence
-    unless @profile.user == current_user
+    # params[:residence] = @profile.residence
+    if current_user.profile.blank?
+      @profile = Profile.new 
+      @profile.user_id = current_user.id
+    end
+
+    unless @profile.user.id == current_user.id
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
     end
   end
@@ -42,9 +53,9 @@ class ProfilesController < ApplicationController
 
 
   private
-  def set_profile
-    @profile = Profile.find(params[:id])
-  end
+  # def set_profile
+  #   @profile = Profile.find(params[:id])
+  # end
 
   def profile_params
     params.require(:profile).permit(:icon, :icon_cache, :gender, :birthday, :residence, :introduction, :golf_history, :average_score, :annual_round_time, :playable_date, :pick_up )
