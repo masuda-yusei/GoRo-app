@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
     @favorite = current_user.favorites.find_by(profile_id: @profile.id)
   end
 
+  
   # GET /profiles/1/edit
   def edit
     # params[:residence] = @profile.residence
@@ -31,7 +32,7 @@ class ProfilesController < ApplicationController
       @profile.user_id = current_user.id
     end
 
-    unless @profile.user.id == current_user.id
+    unless @profile.user_id == current_user.id
       redirect_to @profile, alert: "ユーザー本人以外は編集できません"
     end
   end
