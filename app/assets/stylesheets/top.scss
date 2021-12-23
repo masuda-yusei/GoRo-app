@@ -41,11 +41,14 @@
 }
 
 .login li {
-	width: calc(100%/3);/*←画像を横に4つ並べる場合*/
+  // width :200px;
+	// width: calc(100%/3);/*←画像を横に4つ並べる場合*/
 	padding:0 40px;/*←画像の左右に5pxの余白を入れる場合*/
 	box-sizing:border-box;
   word-break: keep-all;
 }
+
+
 
 
 // @media (max-width: 767px) {

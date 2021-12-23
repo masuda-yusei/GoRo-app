@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def create
+    @user = 
+  end
+
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)
