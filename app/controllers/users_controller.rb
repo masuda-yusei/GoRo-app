@@ -18,8 +18,13 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  # def create
+  #   @user = 
+  # end
+
   def create
-    @user = 
+    @user =  User.create(name: params[:user][:name], gender: params[:user][:gender], age: params[:user][:age], residence: params[:user][:residence],
+                         golf_history: params[:user][:golf_history])
   end
 
   def update
@@ -50,6 +55,6 @@ class UsersController < ApplicationController
   #   unless current_user.admin?
   #     redirect_to tops_index_path, notice: "管理者ではないためこのページにアクセスできません"
   #   end
-  # end  
+  # end 
 
 end
