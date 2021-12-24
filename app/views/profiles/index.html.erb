@@ -28,9 +28,9 @@
           <%= profile.residence %>
 				</p>
 				<div class="buttons">
-					<%= link_to 'Detail', profile, class: "btn btn-info"%>
+					<%= link_to 'プロフィール詳細', profile, class: "btn btn-info"%>
 					<% unless profile.user_id == current_user.id %>
-						<%= link_to 'Message', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
+						<%= link_to 'トーク画面', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
 					<% end %>
 				</div>
 				<div class="profile__detail">

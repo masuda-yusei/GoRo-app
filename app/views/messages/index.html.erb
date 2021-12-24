@@ -41,7 +41,7 @@
                 <div class="message__detail">
                   <p><%= message.created_at.strftime('%m/%d %H:%M') %></p>
                   <% if message.user == current_user %>
-                    <p><%= message.read ? 'read' : 'unread' %></p>
+                    <p><%= message.read ? '既読' : '未読' %></p>
                     <!---?の前の記述（message.read）が、trueなら : の左側の処理を実行（既読）、falseなら,: の右側の処理を実行（未読）--->
                   <% end %>
                 </div>
