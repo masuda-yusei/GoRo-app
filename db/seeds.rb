@@ -149,7 +149,7 @@ profile6.save
 # ゲストログイン
 profile7 = user7.build_profile(
   icon: open("./app/assets/images/profile7.jpg"),
-  gender: "男性"
+  gender: "男性",
   # birthday: "1988-07-11",
   # residence: 5,
   # golf_history: 1,
@@ -157,7 +157,7 @@ profile7 = user7.build_profile(
   # annual_round_time: 4,
   # playable_date: 1,
   # pick_up: 1,
-  # introduction: "初心者ですが、よろしくお願いします！"
+  introduction: "はじめまして。宜しくお願いします。"
 )
 profile7.save
 
