@@ -1,6 +1,6 @@
 # README
 
-![image](https://user-images.githubusercontent.com/89350963/155836765-5109fcb2-b538-413a-9b9b-f4eccb4e600b.jpg)
+![image](https://user-images.githubusercontent.com/89350963/155836818-60573bce-84b2-4a63-81ec-c6788a012cac.png)
 
 ## アプリ概要
 
