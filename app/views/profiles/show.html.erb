@@ -1,4 +1,6 @@
-<h2>マイページ</h2>
+<h2>
+  <strong>マイページ</strong>
+</h2>
 
 <p>
   <% if @profile.icon? %>
@@ -8,12 +10,17 @@
   <% end %>
 </p>
 
+<h3>
+ 【自己紹介】
+</h3>
+
 <p>
-  <strong>　自己紹介:</strong>
   <%= @profile.introduction %>
 </p>
 
-<p>【基本情報】</p>
+<h3>
+  【基本情報】
+</h3>
 
 <p>
   <strong>　ユーザー名:</strong>
@@ -38,7 +45,12 @@
   <%= @profile.residence %>
 </p>
 
-<p>【ゴルフ情報】</p>
+<h4>
+【ゴルフ情報】
+</h4>
+<p>
+  
+</p>
 
 <p>
   <strong>　ゴルフ歴:</strong>
