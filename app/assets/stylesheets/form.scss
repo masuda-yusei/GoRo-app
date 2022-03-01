@@ -11,6 +11,7 @@
 	padding:0 30px;/*←画像の左右に5pxの余白を入れる場合*/
 	box-sizing:border-box;
   word-break: keep-all;
+  font-size: 16px;
 }
 
 .form_area{
@@ -221,4 +222,8 @@ opacity:1;/*不透明に*/
 
 input.search{
   max-width: 130px;
+}
+
+.logo{
+  text-align: center;
 }
