@@ -60,7 +60,7 @@ label {
 
 input,textarea,select{
   width: 600px;
-  height: 50px;
+  height: 70px;
   margin-bottom: 20px;
   padding: 10px;/*中に余裕ができる*/
   font-size: 16px;
@@ -71,6 +71,10 @@ input,textarea,select{
 
 textarea{
   height: 200px;
+}
+
+textarea.form-control {
+  margin-bottom: 20px;
 }
 
 .gender_area label{
