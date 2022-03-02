@@ -19,7 +19,7 @@
   width: 750px;
   // height: 50px;
   position: absolute;
-  top: 33%;
+  top: 30%;
   right: -18.7%;
   // right: 30%;
   transform: translate(-50%,-50%);
@@ -81,6 +81,11 @@
     }
   }
 }
+
+h1.text-black-50 p {
+  margin-top: -20px
+}
+
 
 h2.text-black-50 {
   text-align: left;
