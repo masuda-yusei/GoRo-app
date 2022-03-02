@@ -24,25 +24,28 @@
   // height: 50px;
   position: absolute;
   top: 38%;
-  right: -18.7%;
+  right: 10%;
   // right: 30%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
   margin-right: 200px;
   margin-top: -140px;
+  padding-top: 10px;
 }
 
 .top-authentication {
   position: absolute;
   top: 45%;
-  left: 33%;
+  left: -13%;
   transform: translate(-50%,-50%);
   &__sign-up-btn {
     background: #FD3378;
     border-radius: 40px;
-    padding: 4px;
+    padding: 3px;
     white-space: nowrap;
+    width: 180%;
+    text-align: center;
   }
 }
 
@@ -89,7 +92,7 @@
 }
 
 h1.text-black-50 p {
-  margin-top: -70px
+  margin-top: -90px
 }
 
 
@@ -105,4 +108,14 @@ h2.text-black-50 {
 
 a.btn.text-white {
   font-size: 25px;
+}
+
+.navbar {
+  right: 34%;
+  width: 160%
+}
+
+a.navbar-brand {
+  font-size: 3rem;
+  padding-left: -200px;
 }
