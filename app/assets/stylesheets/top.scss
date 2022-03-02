@@ -25,6 +25,8 @@
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
+  margin-right: 200px;
+  margin-top: -140px;
 }
 
 .top-authentication {
@@ -83,11 +85,20 @@
 }
 
 h1.text-black-50 p {
-  margin-top: -20px
+  margin-top: -70px
 }
 
 
 h2.text-black-50 {
   text-align: left;
   width: 100%;
+}
+
+.text-white {
+  height: 60px;
+  width: 270px;
+}
+
+a.btn.text-white {
+  font-size: 25px;
 }
