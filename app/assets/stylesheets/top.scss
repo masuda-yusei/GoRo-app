@@ -16,11 +16,12 @@
 .top-title {
   background-color: aquamarine;
   // display:flex;
-  // width: 50px;
+  width: 750px;
   // height: 50px;
   position: absolute;
-  top: 25%;
-  right: 30%;
+  top: 33%;
+  right: -18.7%;
+  // right: 30%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -79,4 +80,9 @@
       display: none;
     }
   }
+}
+
+h2.text-black-50 {
+  text-align: left;
+  width: 100%;
 }
