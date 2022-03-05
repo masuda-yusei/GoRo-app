@@ -56,7 +56,17 @@ label {
   display: block;
   font-weight: bold;
   text-align: left;
+  margin-top: 20px;
+  font-size: 16px;
 }
+
+label[for="user_remember_me"] {
+  height: 30px;
+  width: 200px;
+}
+
+
+
 
 input,textarea,select{
   width: 600px;
@@ -151,11 +161,13 @@ textarea.form-control {
 
 .guest, .actions input{
   width: 400px;
+  height: 50px;
   margin-top: 20px;
   padding: 10px;
 }
 
 /*======表示するテキストが切り替わるボタン=======*/
+
 .btntextchange{
   /*テキストの基点とするためrelativeを指定*/
 position: relative;
@@ -231,4 +243,11 @@ input.search{
 
 .logo{
   text-align: center;
+}
+
+#user_remember_me {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 13px;
+  width: 20%;
 }
