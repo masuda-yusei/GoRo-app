@@ -44,11 +44,11 @@
 .top-title {
   background-color: aquamarine;
   // display:flex;
-  width: 750px;
+  width: 710px;
   // height: 50px;
   position: absolute;
-  top: 37%;
-  right: 10%;
+  top: 45%;
+  right: 0%;
   // right: 30%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
@@ -60,8 +60,8 @@
 
 .top-authentication {
   position: absolute;
-  top: 45%;
-  left: -13%;
+  top: 60%;
+  left: 6%;
   transform: translate(-50%,-50%);
   &__sign-up-btn {
     background: #FD3378;
@@ -116,13 +116,15 @@
 }
 
 h1.text-black-50 p {
-  margin-top: -90px
+  margin-top: -60px;
+  font-size: 30px;
 }
-
 
 h2.text-black-50 {
   text-align: left;
   width: 100%;
+  // position: fixed;
+  font-size: 30px;
 }
 
 .text-white {
@@ -135,11 +137,13 @@ a.btn.text-white {
 }
 
 .navbar {
-  right: 30.5%;
-  width: 160%
+  right: 15%;
+  width: 130%;
+  position: fixed;
 }
 
 a.navbar-brand {
   font-size: 3rem;
-  padding-left: -200px;
+  padding-left: -150px;
 }
+
