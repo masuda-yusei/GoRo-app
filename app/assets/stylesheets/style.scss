@@ -9,20 +9,8 @@ header {
 }
 
 
-
-body{
-  // background-color: #faf8f8;
-  // color: #524c4c;
-  // // margin-top: 33px;
-  // font-family: 'Noto Sans JP',sans-serif;
-  // // font-family: 'Nunito', sans-serif;
-  // font-size: 20px;
-  // line-height: 40px;
-  // min-height: 100%;
-  // text-align: left;
-
-
-   /* 画像ファイルの指定 */
+#top {
+  /* 画像ファイルの指定 */
   background-image: url("top.jpg");
    
   /* 画像を常に天地左右の中央に配置 */
@@ -36,6 +24,18 @@ body{
    
   /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
   background-size: cover;
+}
+
+body{
+  background-color: #faf8f8;
+  color: #524c4c;
+  // margin-top: 33px;
+  font-family: 'Noto Sans JP',sans-serif;
+  // font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  line-height: 40px;
+  min-height: 100%;
+  text-align: left;
 }
 
 h1{
@@ -125,7 +125,7 @@ nav.pagination {
 
 
 footer{
-  height: 70px;
+  height: 105px;
   width: 100%;
   position: absolute;
   // bottom: 0;
