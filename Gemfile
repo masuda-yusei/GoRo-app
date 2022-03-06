@@ -17,6 +17,7 @@ gem 'mini_magick'
 gem 'mimemagic'
 gem 'kaminari'
 # gem 'faker'
+gem 'fog-aws'
 
 gem 'devise'
 gem 'rexml'
