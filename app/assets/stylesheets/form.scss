@@ -251,3 +251,24 @@ input.search{
   height: 13px;
   width: 20%;
 }
+
+#user_name {
+  display: block;
+}
+
+#user_email {
+  display: block;
+}
+
+#user_password {
+  display: block;
+}
+
+#user_password_confirmation {
+  display: block;
+}
+
+input[name="commit"] {
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
