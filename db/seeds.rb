@@ -56,7 +56,7 @@ user7 = User.create!(
 
 profile1 = user1.build_profile(
   # id: user1.id,
-  icon: open("./app/assets/images/profile1.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile1.jpg')),
   gender: "男性",
   birthday: "1994-09-02",
   residence: 1,
@@ -71,7 +71,7 @@ profile1.save
 
 profile2 = user2.build_profile(
   # id: user2.id,
-  icon: open("./app/assets/images/profile2.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile2.jpg')),
   gender: "女性",
   birthday: "1995-08-02",
   residence: 2,
@@ -86,7 +86,7 @@ profile2.save
 
 profile3 = user3.build_profile(
   # id: user3.id,
-  icon: open("./app/assets/images/profile3.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile3.jpg')),
   gender: "男性",
   birthday: "1996-07-11",
   residence: 3,
@@ -101,7 +101,7 @@ profile3.save
 
 profile4 = user4.build_profile(
   # id: user4.id,
-  icon: open("./app/assets/images/profile4.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile4.jpg')),
   gender: "男性",
   birthday: "1990-07-11",
   residence: 4,
@@ -116,7 +116,7 @@ profile4.save
 
 profile5 = user5.build_profile(
   # id: user5.id,
-  icon: open("./app/assets/images/profile5.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile5.jpg')),
   gender: "男性",
   birthday: "1988-07-11",
   residence: 5,
@@ -132,7 +132,7 @@ profile5.save
 
 # ゲスト管理者ログイン
 profile6 = user6.build_profile(
-  icon: open("./app/assets/images/profile6.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile6.jpg')),
   gender: "男性",
   birthday: "1",
   residence: 5,
@@ -148,7 +148,7 @@ profile6.save
 
 # ゲストログイン
 profile7 = user7.build_profile(
-  icon: open("./app/assets/images/profile7.jpg"),
+  icon: File.open(Rails.root.join('app/assets/images/profile7.jpg')),
   gender: "男性",
   # birthday: "1988-07-11",
   # residence: 5,
