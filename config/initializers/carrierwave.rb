@@ -11,8 +11,8 @@ CarrierWave.configure do |config|
     config.asset_host = ENV['AWS_S3_URL']
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: ENV['S3_AWS_ACCESS_KEY_ID'], # アクセスキー
-      aws_secret_access_key: ENV['S3_AWS_SECRET_ACCESS_KEY'], # シークレットアクセスキー
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], # アクセスキー
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'], # シークレットアクセスキー
       region: 'ap-northeast-1', # リージョン
       endpoint: 'https://s3.ap-northeast-1.amazonaws.com/',
       path_style: true
