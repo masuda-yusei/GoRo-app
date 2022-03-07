@@ -12,7 +12,7 @@ class IconUploader < CarrierWave::Uploader::Base
     storage :fog
   end
 
-  process :resize_to_fill => [50, 50] # 画像サイズの調整
+  process :resize_to_fill => [200, 200] # 画像サイズの調整
 
 
   # Override the directory where uploaded files will be stored.
