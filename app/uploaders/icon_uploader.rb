@@ -9,8 +9,8 @@ class IconUploader < CarrierWave::Uploader::Base
   elsif Rails.env.test?
     storage :file
   else
-    storage :fog
-    # storage :file
+    # storage :fog
+    storage :file
   end
 
   process :resize_to_fill => [200, 200] # 画像サイズの調整
