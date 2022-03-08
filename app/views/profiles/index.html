@@ -1,0 +1,58 @@
+<h2>プロフィール一覧</h2>
+
+<%= search_form_for @q do |f| %>
+	<%= f.select :residence_eq ,Profile.residences, {include_blank: '居住地で検索'} %>
+	<%= f.submit '検索', class:"btntextchange search" %>
+<% end %>
+
+
+<% if @profiles.empty? %>
+  <br>
+  検索結果が見つかりませんでした
+<% end %>
+
+<%# <div class="scroll-list jscroll"> %>
+	<%# <ul class="cards"> %>
+
+<br>
+<div class = "row">
+	  <%# <br> %>
+	<% @profiles.each do |profile| %>
+	  <div class="col-md-6">
+			<li class="profile__card">
+				<% if profile.icon? %>
+          <%= image_tag profile.icon.url %>
+        <% else %>
+          <%= image_tag asset_path("default_icon.png") %>
+        <% end %>
+				<h3><%= profile.user.name %></h3>
+				<p>
+					<%= (Date.today.strftime('%Y%m%d').to_i - profile.birthday.strftime('%Y%m%d').to_i) / 10000 if  profile.birthday.present? %>歳 
+					<%= profile.gender %>
+          <%= profile.residence %>
+				</p>
+				<div class="buttons">
+					<%= link_to 'プロフィール詳細', profile, class: "btn btn-info"%>
+					<% unless profile.user_id == current_user.id %>
+						<%= link_to 'トーク画面', talks_path(sender_id: current_user.id, receiver_id: profile.user.id), method: :post, class: "btn btn-warning" %>
+					<% end %>
+				</div>
+				<div class="profile__detail">
+					<p><%= profile.introduction.truncate(20) if profile.introduction.present? %></p>
+				</div>
+			</li>
+		</div>
+	<% end %>
+</div>
+	<%# </ul> %>
+	<%# <%= paginate @profiles %>
+<%# </div> %>
+
+<%# <script>
+  $(function() {
+    $('.jscroll').jscroll({
+      contentSelector: '.scroll-list',
+      nextSelector: 'span.next:last a'
+    });
+  });
+</script> %>
