@@ -16,6 +16,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1', # リージョン
       # endpoint: 'http://aws-s3-bucket-you.s3-ap-northeast-1.amazonaws.com/',
       # endpoint: 'http://aws-s3-bucket-you.s3-website-ap-northeast-1.amazonaws.com',
+      endpoint: 'http://aws-s3-bucket-you.s3-ap-northeast-1.amazonaws.com',
       path_style: true
     }
   else # 本番環境以外の場合はアプリケーション内にアップロード
