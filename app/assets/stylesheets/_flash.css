@@ -1,0 +1,15 @@
+.notice {
+  color: white;
+  background-color: blue;
+}
+.alert {
+  color: white;
+  /* background-color: red; */
+  /* font-size: 30px; */
+  /* text-align: center; */
+  width: 120%;
+  right: 10%
+  /* right: 95%; */
+  /* padding-top: 40px; */
+  /* left: 50% */
+}
