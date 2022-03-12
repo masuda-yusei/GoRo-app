@@ -10,24 +10,36 @@ class ProfilesController < ApplicationController
     @profiles = @q.result(distinct: true)#.where.not(id: admin.profile.id).includes(:residence).order(updated_at: :desc).page(params[:page]).per(12)
   end
 
+  # def new
+  #   @profile = Profile.new
+  # end
+
+  # def create
+  #   @profile = Profile.new(profile_params)
+
+  #   if @profile.save
+  #     redirect_to profiles_path
+  #   end
+  # end
+
   # GET /profiles/1
   def show
-    
     if current_user.profile.blank?
       @profile = Profile.new 
       @profile.user_id = current_user.id
-    end
+    # end
     @profile = Profile.find(params[:id]) if current_user.profile.present?
     # @users = @profile.users.order(updated_at: :desc).limit(4)
     @blogs = @profile.user.blogs.order(updated_at: :desc).limit(4)
     @favorite = current_user.favorites.find_by(profile_id: @profile.id)
+    end
   end
 
   # GET /profiles/1/edit
   def edit
     # params[:residence] = @profile.residence
     if current_user.profile.blank?
-      @profile = Profile.new 
+      @profile = Profile.new
       @profile.user_id = current_user.id
     end
 
@@ -40,7 +52,7 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
-    # binding.irb
+    binding.irb
     # @profile.residence = residence_param
     @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
