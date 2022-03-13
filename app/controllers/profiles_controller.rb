@@ -11,6 +11,24 @@ class ProfilesController < ApplicationController
   end
 
   # GET /profiles/1
+  def create
+    # user = User.find(current_user.id)
+    # profile = user.build_profile(id: user.id)
+    # @profile = Profile.new 
+    # @profile.user_id = current_user.id
+    # redirect_to @profile, notice: t('notice.update', model: t('profile'))
+    if current_user.profile.blank?
+      @profile = Profile.new 
+      @profile.user_id = current_user.id
+    end
+    @profile = Profile.find(params[:id]) if current_user.profile.present?
+    if @profile.update(profile_params)
+      redirect_to @profile, notice: t('notice.update', model: t('profile'))
+    else
+      render :edit
+    end
+  end
+
   def show
     
     if current_user.profile.blank?
