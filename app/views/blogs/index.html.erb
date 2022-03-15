@@ -10,7 +10,6 @@
 
 <hr>
 
-<%# <div class="scroll-list jscroll"> %>
 <div class = "row">
   <% @blogs.each do |blog| %>
       <div class="col-md-6">
@@ -18,7 +17,6 @@
           <div class="blog__area index">
             <h1 class="blog_title"><%= blog.title.truncate(22) %></h1>
               <p class="content"><%= blog.content.truncate(200) %></p>
-  
             <div class="user__area">
               <p><%= image_tag blog.user.profile.icon.url %></p>
               <p><%= blog.user.name %></p>

@@ -1,40 +1,3 @@
-// .jumbotron {
-//   background-image: image-url('top.jpg');
-//   background-size: cover;
-//   height: 120vh;
-//   width: 200vh;
-//   position: relative;
-//   margin-left: -440px;
-//   padding-bottom: 50px;
-// }
-
-// .jumbotron {
-  // /* 画像ファイルの指定 */
-  // background-image: url("top.jpg");
-   
-  // /* 画像を常に天地左右の中央に配置 */
-  // background-position: center center;
-   
-  // /* 画像をタイル状に繰り返し表示しない */
-  // background-repeat: no-repeat;
-   
-  // /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-  // background-attachment: fixed;
-   
-  // /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-  // // background-size: cover;
-
-  // width: 100%;
-  // height: 100vh;
-  // background-image: url("top.jpg");
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
-
-
-// }
-
-
-
 .text-top-color {
   color: #FD3378;
   font-weight: 600;
@@ -43,13 +6,10 @@
 
 .top-title {
   background-color: aquamarine;
-  // display:flex;
   width: 710px;
-  // height: 50px;
   position: absolute;
   top: 45%;
   right: 0%;
-  // right: 30%;
   transform: translate(-50%,-50%);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -75,7 +35,6 @@
 
 .login{
   display: flex;
-	// flex-wrap:wrap;
 }
 
 .login li {

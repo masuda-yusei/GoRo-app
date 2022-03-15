@@ -1,17 +1,19 @@
-.talking__user{
+.talking__user {
   background: rgb(241, 241, 241);
   border: solid 1px #524c4c80;
   margin: 10px;
   padding: 20px;
   text-align: left;
 }
-.talking__user img{
+
+.talking__user img {
   border-radius: 50%;
   margin-right: 30px;
   width: 60px;
   height: 60px;
 }
-.talking__user .btn-danger{
+
+.talking__user .btn-danger {
   border-radius: 50%;
   text-align: right;
 }
@@ -43,11 +45,13 @@ iPhoneのメッセージ風
   box-sizing: content-box;/*はてな用*/
   text-align: left;
 }
+
 /*フキダシ左*/
 .message__area .fukidasi.left {
   float: left;
   background: #e9e9ed;
 }
+
 /*フキダシ右*/
 .message__area .fukidasi.right {
   float: right;
@@ -55,6 +59,7 @@ iPhoneのメッセージ風
   color: white;
   position: relative;
 }
+
 .message__detail { //時間、既読エリア共通
   color: #000;
   width: 80px;
@@ -63,6 +68,7 @@ iPhoneのメッセージ風
   bottom: 0;
   font-size: 0.7em;
 }
+
 .fukidasi.right .message__detail { //自分のメッセージ
   padding-right: 10px;
   left: -80px;
@@ -81,15 +87,17 @@ iPhoneのメッセージ風
   height: 17px;
   bottom: 0;
 }
+
 /*しっぽ左*/
 .message__area .fukidasi.left::after {
   left: -6px;
-  border-radius: 0px 0  17px 0px/ 0px 0 13px 0; 
-  box-shadow: -14px 2px 0 -3px rgb(241, 241, 241) inset; 
+  border-radius: 0px 0  17px 0px/ 0px 0 13px 0;
+  box-shadow: -14px 2px 0 -3px rgb(241, 241, 241) inset;
 }
+
 /*しっぽ右*/
 .message__area .fukidasi.right::after {
   right: -6px;
-  border-radius: 0px 0  0 17px/ 0px 0 0 13px; 
-  box-shadow: 14px 2px 0 -3px #2793fa inset; 
+  border-radius: 0px 0  0 17px/ 0px 0 0 13px;
+  box-shadow: 14px 2px 0 -3px #2793fa inset;
 }

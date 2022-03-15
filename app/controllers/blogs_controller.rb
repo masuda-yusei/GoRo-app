@@ -2,13 +2,13 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
-  # GET /blogs or /blogs.json
+  # GET /blogs
   def index
     @q = Blog.ransack(params[:q])
     @blogs = @q.result(distinct: true).includes(:user).order(updated_at: :desc).page(params[:page]).per(4)
   end
 
-  # GET /blogs/1 or /blogs/1.json
+  # GET /blogs/1
   def show
     @duration = ((Time.zone.now - @blog.created_at) / 3600).to_i
   end
@@ -25,7 +25,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # POST /blogs or /blogs.json
+  # POST /blogs
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
@@ -37,7 +37,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /blogs/1 or /blogs/1.json
+  # PATCH/PUT /blogs/1
   def update
     if @blog.update(blog_params)
       redirect_to @blog, notice: t('notice.update', model: t('blog'))
@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # DELETE /blogs/1 or /blogs/1.json
+  # DELETE /blogs/1
   def destroy
     @blog.destroy
     redirect_to blogs_url, notice: t('notice.destroy', model: t('blog'))

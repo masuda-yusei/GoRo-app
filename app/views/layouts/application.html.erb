@@ -4,35 +4,27 @@
     <title>GoRo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
-  <div class="container">
-    <% unless [tops_index_path, root_path].map{|page| current_page?(page)}.any? %>
-      <header>
-        <div class="logo">
-          <%= link_to image_tag("header_logo.png", alt: "logo"), tops_index_path, data: {"turbolinks" => false} %>
-        </div>
-    <% end %>
-      <div align="right" class="float_right">
-        <% if user_signed_in? %>
-              <%# <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-address-card fa-5x"></i>
-              </a> %>
-            <%# <p>メニュー一覧</p> %>
+    <div class="container">
+      <% unless [tops_index_path, root_path].map{|page| current_page?(page)}.any? %>
+        <header>
+          <div class="logo">
+            <%= link_to image_tag("header_logo.png", alt: "logo"), tops_index_path, data: {"turbolinks" => false} %>
+          </div>
+      <% end %>
+          <div align="right" class="float_right">
+            <% if user_signed_in? %>
               <ul class="menu">
               <br>
                 <li><%= link_to "ゴルファー一覧", profiles_path, data: {"turbolinks" => false} %></li>
-                <%# <><%= link_to "ゴルファーを検索する", users_path, data: {"turbolinks" => false} %>
                 <li><%= link_to "ゴルフブログ", blogs_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "メッセージ一覧", talks_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "お気に入り一覧", favorite_profiles_path, data: {"turbolinks" => false} %></li>
                 <li><%= link_to "マイページ", profile_path(current_user.id), data: {"turbolinks" => false} %></li>
-                <%# <><%= link_to "アカウント", edit_user_registration_path, data: {"turbolinks" => false} %>
                 <li><%= link_to "アカウント", edit_user_path(current_user.id), data: {"turbolinks" => false} %></li>
                 <li>
                   <% if current_user.try(:admin?) %>
@@ -47,43 +39,39 @@
                   <% end %>
                 </li>
               </ul>
-            </li>
+            <% end %>
           </div>
-        <% end %>
-      </header>
+        </header>
 
-        <% if notice %>
-          <p class="alert alert-notice"><i class="fas fa-check"></i> <%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-error"><i class="fas fa-exclamation-triangle"></i> <%= alert %></p>
-        <% end %>
+          <% if notice %>
+            <p class="alert alert-notice"><i class="fas fa-check"></i> <%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><i class="fas fa-exclamation-triangle"></i> <%= alert %></p>
+          <% end %>
 
-        <div align="right" class = "icon-display">
-          <% unless [tops_index_path, root_path].map{|p| current_page?(p)}.any? %>
-            <% if user_signed_in? %>
-              <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
-                <% if current_user.profile.present? %>
-                  <%= image_tag current_user.profile.icon.url %>
-                <% else %>
-                  <%= image_tag asset_path("default_icon.png") %>
+          <div align="right" class = "icon-display">
+            <% unless [tops_index_path, root_path].map{|p| current_page?(p)}.any? %>
+              <% if user_signed_in? %>
+                <%= link_to profile_path(current_user.id), data: {"turbolinks" => false} do %>
+                  <% if current_user.profile.present? %>
+                    <%= image_tag current_user.profile.icon.url %>
+                  <% else %>
+                    <%= image_tag asset_path("default_icon.png") %>
+                  <% end %>
+                  <%= current_user.name %>
                 <% end %>
-                <%= current_user.name %>
               <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
 
-      <%= yield %>
+        <%= yield %>
+
     </div>
-  </div>
-  <footer>
-    <p>Copyright ©︎ 2021 GoRo All Rights Reserved.</p>
-  </footer>
+    <footer>
+      <p>Copyright ©︎ 2021 GoRo All Rights Reserved.</p>
+    </footer>
   </body>
-  <%# <footer>
-    <p>Copyright ©︎ 2021 GoRo All Rights Reserved.</p>
-  </footer> %>
 </html>
 
 

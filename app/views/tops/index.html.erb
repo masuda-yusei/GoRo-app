@@ -6,18 +6,9 @@
       <div class="float_right">
         <ul class="login">
         <% unless user_signed_in? %>
-          <%# <div class="navbar__sign-in-btn"> %>
-            <li><%= link_to "ログイン", new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %></li>
-            <%# &nbsp;&nbsp; %>
-          <%# </div> %>
-          <%# <div class="navbar__gest_sign-in-btn"> %>
-            <li><%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post %></li>
-            <%# &nbsp;&nbsp; %>
-          <%# </div> %>
-          <%# <div class="navbar__gest_admin_sign-in-btn"> %>
-            <li><%= link_to "ゲスト管理ログイン", users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post %></li>
-            <%# &nbsp;&nbsp; %>
-          <%# </div> %>
+          <li><%= link_to "ログイン", new_user_session_path, class: "btn my-2 my-sm-0 bg-light text-top-color" %></li>
+          <li><%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post %></li>
+          <li><%= link_to "ゲスト管理ログイン", users_guest_admin_sign_in_path, class: "btn my-2 my-sm-0 bg-light text-top-color", method: :post %></li>
         <% end %>
         </ul>
       </div>
@@ -37,7 +28,7 @@
       <p>交友関係を深めてみてください！</p>
     </h2>
   </div>
-  
+
   <% unless user_signed_in? %>
   <div class="top-authentication text-left">
     <div class="top-authentication__sign-up-btn m-3">
