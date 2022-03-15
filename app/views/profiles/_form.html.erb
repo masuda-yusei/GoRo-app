@@ -1,4 +1,3 @@
-<%# <%= form_with( scope: profile, local: true, method: :patch, url: profile_path(profile.user.id)) do |form| %>
 <%= form_with(model: profile, local: true) do |form| %>
   <% if profile.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +11,12 @@
     </div>
   <% end %>
 
-    <div class="field">
+  <div class="field">
     <%= form.label :icon %>
     <%= image_tag profile.icon.url, id: "img_prev" %>
     <%= form.hidden_field :icon_cache %>
     <%= form.file_field :icon, id: 'user_img' %>
-    </div>
+  </div>
 
   <div class="field gender">
     <%= form.label :gender %>
@@ -36,11 +35,6 @@
         } %>
     </div>
   </div>
-
-  <%# <div class="field">
-    <%= form.label :residence %>
-    <%# <%= collection_select :residence, residence.all, :code, :name, include_blank: "エリアを選択してください" %>
-  <%# </div> %>
 
   <div class="field">
     <%= form.label :residence %>

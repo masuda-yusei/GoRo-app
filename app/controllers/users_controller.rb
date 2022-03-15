@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   # GET /users
   def show
-    # @user = User.find(params[:id])
     @user = User.find(current_user.id)
-
   end
 
   def index
@@ -17,10 +15,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(current_user.id)
   end
-
-  # def create
-  #   @user = 
-  # end
 
   def create
     @user =  User.create(name: params[:user][:name], gender: params[:user][:gender], age: params[:user][:age], residence: params[:user][:residence],
@@ -36,10 +30,8 @@ class UsersController < ApplicationController
     end
   end
 
-
   def destroy
     session.delete(:user_id)
-    # @current_user = nil
     flash[:notice] = 'ログアウトしました'
     redirect_to new_session_path
   end
@@ -48,13 +40,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-
-  # private
-  # def require_admin
-  #   unless current_user.admin?
-  #     redirect_to tops_index_path, notice: "管理者ではないためこのページにアクセスできません"
-  #   end
-  # end 
 
 end

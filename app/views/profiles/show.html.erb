@@ -35,7 +35,6 @@
 <p>
   <strong>　年齢:</strong>
   <% if  @profile.birthday.present? 
-    # <%# <%= @profile.birthday %> 
   <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birthday.strftime('%Y%m%d').to_i) / 10000 %>歳
   <% end %>
 </p>
@@ -77,21 +76,13 @@
   <%= @profile.pick_up %>
 </p>
 
-      <%# <p>
-        <% @golf_informations.each do |golf_information| %>
-          <%# <><%= golf_information.golf_history %>
-        <%# <% end %>
-      <%# <p>  %>
-
-
-
 <% if @profile.user_id == current_user.id %>
-         <p><%= link_to 'プロフィールを編集する', edit_profile_path(profile_id: @profile), class: "btn btn-warning" %></p>
-    <% else %>
-        <p><%= link_to 'メッセージを送る', talks_path(sender_id: current_user.id, receiver_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
-    <% end %>
+  <p><%= link_to 'プロフィールを編集する', edit_profile_path(profile_id: @profile), class: "btn btn-warning" %></p>
+<% else %>
+  <p><%= link_to 'メッセージを送る', talks_path(sender_id: current_user.id, receiver_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
+<% end %>
 
- <p>
+<p>
 <i class="fas fa-star"></i>
 <%= @profile.favorites.count %>人がお気に入り
 <% unless @profile.user_id == current_user.id %>
@@ -105,7 +96,6 @@
 
 <% if @profile.user.id == current_user.id %>
   <p>
-    <%# <%= link_to t('Edit'), edit_profile_path(@profile.user_id) %>
     <%= link_to t('Edit'), edit_profile_path(profile_id: @profile) %>
     <%= link_to t('Back'), profiles_path %>
   </p>
